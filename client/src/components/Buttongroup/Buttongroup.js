@@ -12,8 +12,7 @@ export function Buttongroup() {
                     <a className="dropdown-item" href="#">Action</a>
                     <a className="dropdown-item" href="#">Another action</a>
                     <a className="dropdown-item" href="#">Something else here</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">Separated link</a>
+                    
                 </div>
             </div>
 
@@ -25,8 +24,7 @@ export function Buttongroup() {
                     <a className="dropdown-item" href="#">Action</a>
                     <a className="dropdown-item" href="#">Another action</a>
                     <a className="dropdown-item" href="#">Something else here</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">Separated link</a>
+                   
                 </div>
             </div>
 
@@ -38,8 +36,7 @@ export function Buttongroup() {
                     <a className="dropdown-item" href="#">Action</a>
                     <a className="dropdown-item" href="#">Another action</a>
                     <a className="dropdown-item" href="#">Something else here</a>
-                    <div className="dropdown-divider"></div>
-                    <a className="dropdown-item" href="#">Separated link</a>
+                    
                 </div>
             </div>
 
