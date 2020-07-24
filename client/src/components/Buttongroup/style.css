@@ -12,3 +12,11 @@
     margin-top: 50px;
     
 }
+
+.lane{
+  font-weight: bold;
+  position: relative;
+  top: -30px;
+  left: 125px;
+}
+

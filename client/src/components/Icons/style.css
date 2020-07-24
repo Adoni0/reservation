@@ -1,0 +1,73 @@
+.social-icons {
+    top: 30%;
+    left: -12px;
+    transform: translateY(-50%);
+    position: fixed;
+    z-index: 100;
+  }
+
+  .social-icons ul {
+    padding: initial;
+    
+  }
+
+  .social-icons ul {
+    height: 50px;
+    width: 65px;
+    list-style-type: none;
+    padding-left: 12px;
+    padding-top: 6px;
+    margin-top: 5px;
+    color: #fff;
+    
+  }
+
+  .fa{
+    margin-left: 3px;
+  }
+
+  .facebook{
+    background: #3b5998;
+    color: #fff;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .youtube{
+    background: #ff0000;
+    color: #fff;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .linkedin{
+    background: #007bb5;
+    color: #fff;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .twitter{
+    background: #55acee;
+    color: #fff;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .instagram{
+    background: #ff4800;
+    color: #fff;
+    border-radius: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .social-icons ul li:hover {
+    padding-left: 15px;
+    width: 70px;
+    transition: 1s;
+  }
