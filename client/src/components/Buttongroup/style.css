@@ -15,8 +15,12 @@
 
 .lane{
   font-weight: bold;
-  position: relative;
+  /* position: relative;
   top: -30px;
-  left: 125px;
+  left: 125px; */
+}
+
+.calendar{
+  margin: auto;
 }
 
