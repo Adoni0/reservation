@@ -11,7 +11,7 @@ var ReservationSchema = new Schema({
     }, 
     lanes: [
         {
-            laneNum: {
+            laneNum: { //will be 8 lanes
                 type: Number,
                 required: true,
                 default: 1
@@ -34,6 +34,10 @@ var ReservationSchema = new Schema({
                         phone: {
                             type: Number,
                             required: true,
+                        },
+                        email: {
+                            type: String,
+                            required: true
                         }
                     }
                 },
