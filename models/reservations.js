@@ -8,45 +8,121 @@ var ReservationSchema = new Schema({
         type: Date,
         required: true,
         unique: true
-    }, 
-    lanes: [
+    },
+    program: [
         {
-            laneNum: { //will be 8 lanes
-                type: Number,
-                required: true,
-                default: 1
-            },
-            timeslots: [
+            AMlaps: [
                 {
-                    time: {
-                        type: Number,
-                        required: true
-                    }, //use military time for simplicity
-                    reserved: {
-                        type: Boolean,
-                        required: true
-                    },
-                    bookedBy: {
-                        name: {
-                            type: String,
-                            required: true
+                    timeSlots: [
+                        {
+                            time: {
+                                type: Number,
+                                required: true
+                            }, //use military time for simplicity
+                            reserved: {
+                                type: Boolean,
+                                required: true
+                            },
+                            lanes: [
+                                {
+                                    type: Array,
+                                    max: 6,
+                                    required: true,
+                                    reserved: Boolean
+                                }
+
+                            ],
+                            bookedBy: {
+                                name: {
+                                    type: String,
+                                    required: true
+                                },
+                                phone: {
+                                    type: Number,
+                                    required: true,
+                                },
+                                email: {
+                                    type: String,
+                                    required: true
+                                }
+                            }
                         },
-                        phone: {
-                            type: Number,
-                            required: true,
-                        },
-                        email: {
-                            type: String,
-                            required: true
-                        }
-                    }
-                },
-    
+                    ]
+                }
             ]
         },
+        {
+            PMlaps: [
+                {
+                    timeSlots: [
+                        {
+                            time: {
+                                type: Number,
+                                required: true
+                            }, //use military time for simplicity
+                            reserved: {
+                                type: Boolean,
+                                required: true
+                            },
+                            bookedBy: {
+                                name: {
+                                    type: String,
+                                    required: true
+                                },
+                                phone: {
+                                    type: Number,
+                                    required: true,
+                                },
+                                email: {
+                                    type: String,
+                                    required: true
+                                }
+                            }
+                        },
+                    ]
+                }
+            ]
+        }
         
-
     ]
+    
+    // lanes: [
+    //     {
+    //         laneNum: { //will be 6 lanes reservable
+    //             type: Number,
+    //             required: true,
+    //         },
+    //         timeslots: [
+    //             {
+    //                 time: {
+    //                     type: Number,
+    //                     required: true
+    //                 }, //use military time for simplicity
+    //                 reserved: {
+    //                     type: Boolean,
+    //                     required: true
+    //                 },
+    //                 bookedBy: {
+    //                     name: {
+    //                         type: String,
+    //                         required: true
+    //                     },
+    //                     phone: {
+    //                         type: Number,
+    //                         required: true,
+    //                     },
+    //                     email: {
+    //                         type: String,
+    //                         required: true
+    //                     }
+    //                 }
+    //             },
+
+    //         ]
+    //     },
+
+
+    // ]
 });
 
 var Reservations = mongoose.model("Reservations", ReservationSchema);
