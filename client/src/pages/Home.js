@@ -6,32 +6,6 @@ import Icons from '../components/Icons/Icons';
 
 export class Home extends Component {
 
-    // state = {
-    //     submitForm: false,
-    //     date: '',
-    //     isAMButton: false,
-    //     isPMButton: false
-    // }
-
-    // handleClick = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ submitForm: true })
-    // }
-
-    // handleInputChange = (event) => {
-    //     this.setState({ date: event.target.value })
-    //     console.log("Date: " + this.state.date)
-    // }
-
-    // amClick = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ isAMButton: true, isPMButton: false })
-    // }
-
-    // pmClick = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ isPMButton: true, isAMButton: false })
-    // }
 
     render() {
         return (
