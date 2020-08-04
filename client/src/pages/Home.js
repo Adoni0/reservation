@@ -25,12 +25,12 @@ export class Home extends Component {
 
     amClick = (e) => {
         e.preventDefault();
-        this.setState({ isAMButton: true })
+        this.setState({ isAMButton: true, isPMButton: false })
     }
 
     pmClick = (e) => {
         e.preventDefault();
-        this.setState({ isPMButton: true })
+        this.setState({ isPMButton: true, isAMButton: false })
     }
 
     render() {
