@@ -64,6 +64,15 @@ var ReservationSchema = new Schema({
                                 type: Boolean,
                                 required: true
                             },
+                            lanes: [
+                                {
+                                    type: Array,
+                                    max: 6,
+                                    required: true,
+                                    reserved: Boolean
+                                }
+
+                            ],
                             bookedBy: {
                                 name: {
                                     type: String,
@@ -83,9 +92,9 @@ var ReservationSchema = new Schema({
                 }
             ]
         }
-        
+
     ]
-    
+
     // lanes: [
     //     {
     //         laneNum: { //will be 6 lanes reservable

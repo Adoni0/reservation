@@ -2,16 +2,44 @@ import React from 'react';
 import './style.css';
 // import Moment from 'react-moment';
 
-export function Form() {
+export function Form(props) {
     return (
         <div className="row">
-            <form className="calendar" action="/action_page.php">
-                <label className="lane" id="l1" for="reserve">Reserve a Lane: </label>
-                <input type="date" name="lane1" />
-                <input type="submit" />
+            <form className="calendar">
+                <label className="lane" id="l1">Select a Date: </label>
+                <input type="date" name="date" value={props.value} onChange={props.handleInputChange} />
+                <button onClick={props.handleClick}>Submit</button>
             </form>
 
         </div>
+    )
+}
+
+export function ProgramButton(props) {
+
+    return (
+        <div className="lap-btns">
+            <button onClick={props.amClick} type="button" className="btn btn-light">AM Lap Swim</button>
+            <button onClick={props.pmClick} type="button" className="btn btn-dark">PM Lap Swim</button>
+        </div>
+    )
+}
+
+export function AM() {
+    return(
+        <>
+        <button type="button" class="btn btn-outline-info">9AM</button>
+        <button type="button" class="btn btn-outline-info">10AM</button>
+        </>
+    )
+}
+
+export function PM() {
+    return(
+        <>
+        <button type="button" class="btn btn-outline-info">5PM</button>
+        <button type="button" class="btn btn-outline-info">6PM</button>
+        </>
     )
 }
 

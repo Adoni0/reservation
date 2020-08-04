@@ -1,11 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ResDisplay from '../components/ResDisplay/ResDisplay';
 
 export default class Reservations extends Component {
+
+    state = {
+        
+    }
+
     render() {
         return (
-            <div>
-                <h2>Make your reservation for (date)</h2>
-            </div>
+            <ResDisplay 
+            date={this.state.date}
+            />
         )
     }
 }
+
+
