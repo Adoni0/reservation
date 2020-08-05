@@ -13,8 +13,11 @@ export default class Reservations extends Component {
             <>
             <ResDisplay 
             date={this.props.date}
+            time={this.props.time}
             />
-            <Contact />
+            <Contact 
+            handleSubmit={this.props.handleSubmit}
+            />
             </>
         )
     }

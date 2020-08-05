@@ -16,7 +16,8 @@ export class Home extends Component {
                 <Form 
                 handleClick={this.props.handleClick}
                 handleInputChange={this.props.handleInputChange}
-                value={this.props.value} 
+                value={this.props.value}
+                nineAM={this.props.nineAM} 
                 />
                 <Icons />
                 {this.props.submitForm ? <ProgramButton amClick={this.props.amClick}

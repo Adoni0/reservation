@@ -26,10 +26,10 @@ export function ProgramButton(props) {
     )
 }
 
-export function AM() {
+export function AM(props) {
     return(
         <>
-        <button type="button" className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
+        <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
         <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
         </>
     )
