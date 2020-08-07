@@ -1,6 +1,9 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
+import swimmer from '../../images/swimmer.jpg';
+import swimmer1 from '../../images/swimmer1.jpg';
+import swimmer2 from '../../images/swimmer2.jpg';
 // import Moment from 'react-moment';
 
 export function Form(props) {
@@ -27,25 +30,38 @@ export function ProgramButton(props) {
 }
 
 export function AM(props) {
-    return(
+    return (
         <>
-        <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
-        <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
+            <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
+            <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
         </>
     )
 }
 
 export function PM() {
-    return(
+    return (
         <>
-        <button type="button" className="btn btn-outline-info">5PM</button>
-        <button type="button" className="btn btn-outline-info">6PM</button>
+            <button type="button" className="btn btn-outline-info">5PM</button>
+            <button type="button" className="btn btn-outline-info">6PM</button>
         </>
     )
 }
 
 export function PoolImage() {
     return (
-        <img className="pool-image" src="https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+        <>
+            <img className="swimmer" src={swimmer} />
+            <img className="swimmer1" src={swimmer1} />
+            <img className="swimmer2" src={swimmer2} />
+        </>
     )
+}
+
+export function Footer() {
+    return (
+        <div className="footer">
+            <p>This is some content in sticky footer</p>
+        </div>
+    )
+
 }

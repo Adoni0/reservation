@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavbarDisplay from '../components/NavbarDisplay/NavbarDisplay';
-import { Form, ProgramButton, AM, PM, PoolImage } from '../components/Buttongroup/Form';
+import { Form, ProgramButton, AM, PM, PoolImage, Footer } from '../components/Buttongroup/Form';
 import Icons from '../components/Icons/Icons';
 
 
@@ -24,6 +24,7 @@ export class Home extends Component {
                 pmClick={this.props.pmClick} /> : console.log('form not yet submitted')}
                 {this.props.isAMButton ? <AM /> : console.log("am button not clicked yet")}
                 {this.props.isPMButton ? <PM /> : console.log("pm button not yet pushed")}
+                <Footer />
             </div>
         )
     }

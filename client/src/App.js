@@ -21,11 +21,11 @@ class App extends Component {
   }
 
   handleInputChange = (event) => {
-    // const { name, value } = event.target;
-    // this.setState({
-    //   [name]: value
-    // })
-    this.setState({ date: event.target.value })
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
+    // this.setState({ date: event.target.value })
     // console.log("Date: " + this.state.date)
   }
 
@@ -47,9 +47,9 @@ class App extends Component {
 
   handleSubmit = () => {
     API.storeReservation()
-    .then(data => {
-      alert("Success!")
-    })
+      .then(data => {
+        alert("Success!")
+      })
   }
 
 
