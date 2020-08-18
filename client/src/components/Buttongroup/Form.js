@@ -15,16 +15,16 @@ export function Form(props) {
                 <button onClick={props.handleClick}>Submit</button>
 
                 <div style={{ "display": props.submitForm }} className="lap-btns">
-                    <button onClick={props.amClick} type="button" className="btn btn-light">AM Lap Swim</button>
-                    <button onClick={props.pmClick} type="button" className="btn btn-dark">PM Lap Swim</button>
+                    <button onClick={props.amClick} type="button" className="btn btn-light ampm">AM Lap Swim</button>
+                    <button onClick={props.pmClick} type="button" className="btn btn-dark ampm">PM Lap Swim</button>
                 </div>
 
-                <div style={{ "display": props.amButton }}>
+                <div className="am-link" style={{ "display": props.amButton }}>
                     <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
                     <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
                 </div>
 
-                <div style={{ "display": props.pmButton }}>
+                <div className="pm-link" style={{ "display": props.pmButton }}>
                     <button type="button" className="btn btn-outline-info">5PM</button>
                     <button type="button" className="btn btn-outline-info">6PM</button>
                 </div>

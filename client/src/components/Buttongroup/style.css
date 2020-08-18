@@ -53,6 +53,18 @@ body{
   width: 100%;
 }
 
+.ampm {
+  margin-left: 50px;
+}
+
+.am-link {
+  margin-left: 50px;
+}
+
+.pm-link {
+  margin-left: 230px;
+}
+
 
 
 
