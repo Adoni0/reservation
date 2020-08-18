@@ -8,16 +8,16 @@ import API from './util/API';
 
 class App extends Component {
   state = {
-    submitForm: false,
+    submitForm: "none",
     date: '',
-    isAMButton: false,
-    isPMButton: false,
+    isAMButton: "none",
+    isPMButton: "none",
     time: ''
   }
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({ submitForm: true })
+    this.setState({ submitForm: "block" })
   }
 
   handleInputChange = (event) => {
@@ -31,12 +31,12 @@ class App extends Component {
 
   amClick = (e) => {
     e.preventDefault();
-    this.setState({ isAMButton: true, isPMButton: false })
+    this.setState({ isAMButton: "block", isPMButton: "none" })
   }
 
   pmClick = (e) => {
     e.preventDefault();
-    this.setState({ isPMButton: true, isAMButton: false })
+    this.setState({ isPMButton: "block", isAMButton: "none" })
   }
 
   handleNineAM = (e) => {

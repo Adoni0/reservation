@@ -13,39 +13,56 @@ export function Form(props) {
                 <label className="lane" id="l1">Select a Date: </label>
                 <input type="date" name="date" value={props.value} onChange={props.handleInputChange} />
                 <button onClick={props.handleClick}>Submit</button>
+
+                <div style={{ "display": props.submitForm }} className="lap-btns">
+                    <button onClick={props.amClick} type="button" className="btn btn-light">AM Lap Swim</button>
+                    <button onClick={props.pmClick} type="button" className="btn btn-dark">PM Lap Swim</button>
+                </div>
+
+                <div style={{ "display": props.amButton }}>
+                    <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
+                    <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
+                </div>
+
+                <div style={{ "display": props.pmButton }}>
+                    <button type="button" className="btn btn-outline-info">5PM</button>
+                    <button type="button" className="btn btn-outline-info">6PM</button>
+                </div>
             </form>
 
+
+
         </div>
     )
 }
 
-export function ProgramButton(props) {
+// export function ProgramButton(props) {
 
-    return (
-        <div className="lap-btns">
-            <button onClick={props.amClick} type="button" className="btn btn-light">AM Lap Swim</button>
-            <button onClick={props.pmClick} type="button" className="btn btn-dark">PM Lap Swim</button>
-        </div>
-    )
-}
+//     return (
+//         <div className="lap-btns">
+//             <button onClick={props.amClick} type="button" className="btn btn-light">AM Lap Swim</button>
+//             <button onClick={props.pmClick} type="button" className="btn btn-dark">PM Lap Swim</button>
+//         </div>
+//     )
+// }
 
-export function AM(props) {
-    return (
-        <>
-            <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
-            <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
-        </>
-    )
-}
+// export function AM(props) {
+//     return (
+//         <div>
+//             <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
+//             <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
+//         </div>
+//     )
+// }
 
-export function PM() {
-    return (
-        <>
-            <button type="button" className="btn btn-outline-info">5PM</button>
-            <button type="button" className="btn btn-outline-info">6PM</button>
-        </>
-    )
-}
+// export function PM() {
+//     return (
+//         <div>
+//             <button type="button" className="btn btn-outline-info">5PM</button>
+//             <button type="button" className="btn btn-outline-info">6PM</button>
+//         </div>
+//     )
+// }
 
 export function PoolImage() {
     return (
