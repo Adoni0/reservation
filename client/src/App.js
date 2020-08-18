@@ -12,7 +12,10 @@ class App extends Component {
     date: '',
     isAMButton: "none",
     isPMButton: "none",
-    time: ''
+    time: '',
+    name: '',
+    email: '',
+    phone: 0
   }
 
   handleClick = (e) => {
@@ -45,8 +48,20 @@ class App extends Component {
     console.log("TIME " + this.state.time);
   }
 
-  handleSubmit = () => {
-    API.storeReservation()
+  handleSubmit = (e) => {
+    e.preventDefault();
+    API.storeReservation({
+      date: this.state.date,
+      timeSlots: [{
+        time: this.state.time,
+        reserved: true,
+        bookedBy: {
+          name: this.state.name,
+          phone: this.state.phone,
+          email: this.state.email
+        }
+      }]
+    })
       .then(data => {
         alert("Success!")
       })
@@ -71,6 +86,7 @@ class App extends Component {
           <Route exact path="/reserve" render={props => <Reservations {...props}
             date={this.state.date}
             time={this.state.time}
+            handleInputChange={this.handleInputChange}
             handleSubmit={this.handleSubmit}
           />} />
         </Switch>
