@@ -16,7 +16,7 @@ export default function NavbarDisplay() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <Link to="/">Home</Link>
+                                <a className="homeLink" href="/">Home</a>
                             </li>
                             
                         </ul>

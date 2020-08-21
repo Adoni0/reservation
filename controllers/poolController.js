@@ -1,7 +1,8 @@
-const db = require('../models/reservations');
+const db = require('../models/');
 
 module.exports = {
     create: function(req, res){
+        console.log(`we got this far!`);
         db.Reservations.create(req.body)
         .then(data => {
             console.log(data)

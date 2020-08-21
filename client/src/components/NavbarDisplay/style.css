@@ -2,6 +2,10 @@
     color: blue;
 }
 
+.homeLink:hover {
+    color: blue;
+}
+
 .parksImage{
     height: 4em;
 }
