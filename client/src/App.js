@@ -16,7 +16,7 @@ class App extends Component {
     time: '',
     name: '',
     email: '',
-    phone: 0
+    phone: ''
   }
 
   handleClick = (e) => {
@@ -52,7 +52,7 @@ class App extends Component {
     e.preventDefault();
     API.storeReservation({
       date: this.state.date,
-      timeSlots: [{
+      timeSlots: {
         time: this.state.time,
         reserved: true,
         bookedBy: {
@@ -60,7 +60,7 @@ class App extends Component {
           phone: this.state.phone,
           email: this.state.email
         }
-      }]
+      }
     })
       .then(data => {
         alert("Success!", data)
