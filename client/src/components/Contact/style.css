@@ -3,6 +3,11 @@
     padding-right: 50px;
 }
 
+.outerContainer{
+  display: flex;
+  justify-content: center;
+}
+
 .btn {
     display: inline-block;
     vertical-align: middle;
@@ -17,4 +22,8 @@
   .btn:hover, .btn:focus, .btn:active {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+  }
+
+  .btn:focus {
+    outline: 0;
   }

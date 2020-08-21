@@ -1,3 +1,11 @@
 .admin:hover {
     color: blue;
 }
+
+.parksImage{
+    height: 4em;
+}
+
+.navbar{
+    background-color: #ffffff;
+}

@@ -18,6 +18,9 @@ export default class Reservations extends Component {
             <Contact 
             handleSubmit={this.props.handleSubmit}
             handleInputChange={this.props.handleInputChange}
+            name={this.props.name}
+            email={this.props.email}
+            phone={this.props.phone}
             />
             </>
         )

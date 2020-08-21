@@ -20,7 +20,7 @@ export function Form(props) {
                 </div>
 
                 <div className="am-link" style={{ "display": props.amButton }}>
-                    <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
+                    <button type="button" onClick={props.nineAM} className="btn btn-outline-info test"><Link to="/reserve">9AM</Link></button>
                     <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
                 </div>
 

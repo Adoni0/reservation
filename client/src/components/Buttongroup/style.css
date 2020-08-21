@@ -65,6 +65,11 @@ body{
   margin-left: 230px;
 }
 
+button:focus {
+  outline: 0;
+}
+
+
 
 
 

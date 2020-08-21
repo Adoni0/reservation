@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from "./pages/Home";
 import Reservations from "./pages/Reservations";
+import NoMatch from './pages/NoMatch'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
 
@@ -28,8 +29,7 @@ class App extends Component {
     this.setState({
       [name]: value
     })
-    // this.setState({ date: event.target.value })
-    // console.log("Date: " + this.state.date)
+   
   }
 
   amClick = (e) => {
@@ -63,8 +63,9 @@ class App extends Component {
       }]
     })
       .then(data => {
-        alert("Success!")
+        alert("Success!", data)
       })
+      .catch(err => console.log(err));
   }
 
 
@@ -88,7 +89,11 @@ class App extends Component {
             time={this.state.time}
             handleInputChange={this.handleInputChange}
             handleSubmit={this.handleSubmit}
+            name={this.state.name}
+            email={this.state.email}
+            phone={this.state.phone}
           />} />
+          <Route component={NoMatch} />
         </Switch>
       </Router >
     );
