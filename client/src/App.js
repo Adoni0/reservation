@@ -32,20 +32,35 @@ class App extends Component {
    
   }
 
-  amClick = (e) => {
+  amClick = e => {
     e.preventDefault();
     this.setState({ isAMButton: "block", isPMButton: "none" })
   }
 
-  pmClick = (e) => {
+  pmClick = e => {
     e.preventDefault();
     this.setState({ isPMButton: "block", isAMButton: "none" })
   }
 
-  handleNineAM = (e) => {
+  handleNineAM = e => {
     e.preventDefault();
     this.setState({ time: "9AM" })
-    console.log("TIME " + this.state.time);
+    // console.log("TIME " + this.state.time);
+  }
+
+  handleTenAM = e => {
+    e.preventDefault();
+    this.setState({ time: "10AM" })
+  }
+
+  handleFivePM = e => {
+    e.preventDefault();
+    this.setState({ time: "5PM" })
+  }
+
+  handleSixPm = e => {
+    e.preventDefault();
+    this.setState({ time: "6PM" })
   }
 
   handleSubmit = (e) => {
@@ -54,7 +69,6 @@ class App extends Component {
       date: this.state.date,
       timeSlots: {
         time: this.state.time,
-        reserved: true,
         bookedBy: {
           name: this.state.name,
           phone: this.state.phone,
@@ -83,6 +97,9 @@ class App extends Component {
             isAMButton={this.state.isAMButton}
             isPMButton={this.state.isPMButton}
             nineAM={this.handleNineAM}
+            tenAM={this.handleTenAM}
+            fivePM={this.handleFivePM}
+            sixPM={this.handleSixPM}
           />} />
           <Route exact path="/reserve" render={props => <Reservations {...props}
             date={this.state.date}

@@ -20,13 +20,13 @@ export function Form(props) {
                 </div>
 
                 <div className="am-link" style={{ "display": props.amButton }}>
-                    <button type="button" onClick={props.nineAM} className="btn btn-outline-info test"><Link to="/reserve">9AM</Link></button>
-                    <button type="button" className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
+                    <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
+                    <button type="button" onClick={props.tenAM} className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
                 </div>
 
                 <div className="pm-link" style={{ "display": props.pmButton }}>
-                    <button type="button" className="btn btn-outline-info">5PM</button>
-                    <button type="button" className="btn btn-outline-info">6PM</button>
+                    <button type="button" onClick={props.fivePM} className="btn btn-outline-info"><Link to="/reserve">5PM</Link></button>
+                    <button type="button" onClick={props.sixPM} className="btn btn-outline-info"><Link to="/reserve">6PM</Link></button>
                 </div>
             </form>
 
