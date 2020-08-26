@@ -1,28 +1,37 @@
 import React, { Component } from 'react'
 import API from '../util/API'
 import pvrpd from '../images/pvrpd.jpg';
+import Moment from 'react-moment'
 
 
 export default class Admin extends Component {
 
     state = {
-
+        date: [],
+        name: '',
+        email: '',
+        phone: '',
+        time: ''
     }
 
-    componentDidMount() {
+    componentDidMount() { //display reservations for the upcoming week
+
         API.getAllReservations()
-        .then(data => {
-            console.log(data.data)
-            
-          })
-          .catch(err => console.log(err));
+            .then(data => {
+                console.log(data.data)
+
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
+
+        const today = new Date();
+
         return (
             <>
-            <nav className="navbar navbar-expand-lg navbar-light">
-                    <img className="navbar-brand parksImage" src={pvrpd}/>
+                <nav className="navbar navbar-expand-lg navbar-light">
+                    <img className="navbar-brand parksImage" src={pvrpd} />
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -32,41 +41,41 @@ export default class Admin extends Component {
                             <li className="nav-item active">
                                 <a className="homeLink" href="/">Home</a>
                             </li>
-                            
+
                         </ul>
-                    
+
                     </div>
                 </nav>
 
-            <div className="admin">
-                {/* <h1>Admin Page</h1> */}
-                
+                <div className="admin">
+                    {/* <h1>Admin Page</h1> */}
 
-                <div className="row admin-row">
-                            <div className="col md-12">
-                                <div className=" card main-card mb-3">
-                                    <div className="card-header">Reservations Made
+
+                    <div className="row admin-row">
+                        <div className="col md-12">
+                            <div className=" card main-card mb-3">
+                                <div className="card-header">Reservations Made
                                         <div className="btn-actions-pane-right">
-                                            <div role="group" className="btn-group-sm btn-group">
-                                                <button className="active btn btn-info">Current Week</button>
-                                                <button className="btn btn-info">Filter Day</button>
-                                            </div>
+                                        <div role="group" className="btn-group-sm btn-group">
+                                            <button className="active btn btn-info">Current Week</button>
+                                            <button className="btn btn-info">Filter Day</button>
                                         </div>
                                     </div>
-                                    <div className="table-responsive">
-                                        <table className="align-middle mb-0 table table-borderless table-striped table-hover">
-                                            <thead>
+                                </div>
+                                <div className="table-responsive">
+                                    <table className="align-middle mb-0 table table-borderless table-striped table-hover">
+                                        <thead>
                                             <tr>
-                                                <th className="text-center">#</th>
+                                                <th className="text-center">Date</th>
                                                 <th>Name</th>
-                                                <th className="text-center">City</th>
-                                                <th className="text-center">Status</th>
-                                                <th className="text-center">Actions</th>
+                                                <th className="text-center">Email</th>
+                                                <th className="text-center">Phone</th>
+                                                <th className="text-center">Time</th>
                                             </tr>
-                                            </thead>
-                                            <tbody>
+                                        </thead>
+                                        <tbody>
                                             <tr>
-                                                <td className="text-center text-muted">#345</td>
+                                                <td className="text-center text-muted"><Moment add={{days: 1}}>{today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
@@ -91,7 +100,7 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted">#347</td>
+                                                <td className="text-center text-muted"><Moment add={{days: 2}}>{today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
@@ -116,7 +125,7 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted">#321</td>
+                                                <td className="text-center text-muted"><Moment add={{days: 3}}>{today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
@@ -141,7 +150,7 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted">#55</td>
+                                                <td className="text-center text-muted"><Moment add={{days: 4}}>{today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
@@ -164,21 +173,93 @@ export default class Admin extends Component {
                                                     <button type="button" className="btn btn-primary btn-sm">Details</button>
                                                 </td>
                                             </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="d-block text-center card-footer">
-                                        <button className="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i className="pe-7s-trash btn-icon-wrapper"> </i></button>
-                                        <button className="btn-wide btn btn-success">Save</button>
-                                    </div>
+                                            <tr>
+                                                <td className="text-center text-muted"><Moment add={{days: 5}}>{today}</Moment></td>
+                                                <td>
+                                                    <div className="widget-content p-0">
+                                                        <div className="widget-content-wrapper">
+                                                            <div className="widget-content-left mr-3">
+                                                                <div className="widget-content-left">
+                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+                                                            </div>
+                                                            <div className="widget-content-left flex2">
+                                                                <div className="widget-heading">Vinnie Wagstaff</div>
+                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="text-center">Amsterdam</td>
+                                                <td className="text-center">
+                                                    <div className="badge badge-info">On Hold</div>
+                                                </td>
+                                                <td className="text-center">
+                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="text-center text-muted"><Moment add={{days: 6}}>{today}</Moment></td>
+                                                <td>
+                                                    <div className="widget-content p-0">
+                                                        <div className="widget-content-wrapper">
+                                                            <div className="widget-content-left mr-3">
+                                                                <div className="widget-content-left">
+                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+                                                            </div>
+                                                            <div className="widget-content-left flex2">
+                                                                <div className="widget-heading">Vinnie Wagstaff</div>
+                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="text-center">Amsterdam</td>
+                                                <td className="text-center">
+                                                    <div className="badge badge-info">On Hold</div>
+                                                </td>
+                                                <td className="text-center">
+                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td className="text-center text-muted"><Moment add={{days: 7}}>{today}</Moment></td>
+                                                <td>
+                                                    <div className="widget-content p-0">
+                                                        <div className="widget-content-wrapper">
+                                                            <div className="widget-content-left mr-3">
+                                                                <div className="widget-content-left">
+                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+                                                            </div>
+                                                            <div className="widget-content-left flex2">
+                                                                <div className="widget-heading">Vinnie Wagstaff</div>
+                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="text-center">Amsterdam</td>
+                                                <td className="text-center">
+                                                    <div className="badge badge-info">On Hold</div>
+                                                </td>
+                                                <td className="text-center">
+                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div className="d-block text-center card-footer">
+                                    <button className="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i className="pe-7s-trash btn-icon-wrapper"> </i></button>
+                                    <button className="btn-wide btn btn-success">Save</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
 
 
 
-            </div>
+                </div>
             </>
         )
     }
