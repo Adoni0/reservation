@@ -7,7 +7,7 @@ export default {
     },
 
     getAllReservations: function(allRes){
-        return axios.get('api/programs')
+        return axios.get('api/reserve')
     }
 
 }

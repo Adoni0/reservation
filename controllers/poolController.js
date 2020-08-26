@@ -15,7 +15,7 @@ module.exports = {
 
             if (count < 6) {
                 console.log('Got this far');
-                // db.Reservations.create(req.body)
+                
                 db.Reservations.create({
                     date: req.body.date,                        // date: '2020-08-25',
                     timeSlot: req.body.timeSlots.time,          // timeSlot: '9AM',
