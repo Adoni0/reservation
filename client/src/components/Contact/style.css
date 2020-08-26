@@ -3,10 +3,19 @@
     padding-right: 50px;
 }
 
+label{
+  color: #ffffff;
+}
+
 .outerContainer{
   display: flex;
   justify-content: center;
+  background-color: #282c34;
 }
+
+/* body{
+  background-color: #282c34;
+} */
 
 .btn {
     display: inline-block;

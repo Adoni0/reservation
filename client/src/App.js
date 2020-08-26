@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from "./pages/Home";
 import Reservations from "./pages/Reservations";
+import Admin from './pages/Admin';
 import NoMatch from './pages/NoMatch'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
@@ -58,7 +59,7 @@ class App extends Component {
     this.setState({ time: "5PM" })
   }
 
-  handleSixPm = e => {
+  handleSixPM = e => {
     e.preventDefault();
     this.setState({ time: "6PM" })
   }
@@ -77,7 +78,7 @@ class App extends Component {
       }
     })
       .then(data => {
-        alert("Success!", data)
+        console.log("Success!")
       })
       .catch(err => console.log(err));
   }
@@ -110,6 +111,8 @@ class App extends Component {
             email={this.state.email}
             phone={this.state.phone}
           />} />
+          <Route exact path="/admin" component={Admin}
+          />
           <Route component={NoMatch} />
         </Switch>
       </Router >

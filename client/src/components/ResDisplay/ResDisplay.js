@@ -6,6 +6,7 @@ export default function ResDisplay(props) {
 
     const style = {
         backgroundImage: "url('https://images.pexels.com/photos/261185/pexels-photo-261185.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260 ')",
+        // borderBottom: " solid white"
     }
 
     return (

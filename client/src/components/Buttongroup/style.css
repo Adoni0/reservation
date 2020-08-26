@@ -20,15 +20,18 @@
   border-top: inset;
 }
 
+.water {
+  z-index: 5;
+}
+
 .row {
-    margin-top: -350px;   
-    z-index: 10;
-    
+    margin-top: 250px;   
+    /* z-index: 1; */
 }
 
 .lane{
   font-weight: bold;
-  color: #FFF;
+  color: black
 }
 
 .calendar{
@@ -37,10 +40,6 @@
 
 a:hover {
   color: #FFF;
-}
-
-body{
-  background-color: rgb(255, 255, 255);
 }
 
 .footer{

@@ -18,7 +18,7 @@ export default function Contact(props) {
                 </div>
                 <div className="form-group">
                     <label>Phone Number</label>
-                    <input type="tel" name="phone" onChange={props.handleInputChange} value={props.phone} placeholder="1234567891" className="form-control" id="exampleInputPassword1" />
+                    <input type="tel" name="phone" onChange={props.handleInputChange} value={props.phone} className="form-control" id="exampleInputPassword1" />
                 </div>
                 
                 <button onClick={props.handleSubmit} type="submit" className="btn btn-primary">Reserve</button>
