@@ -12,7 +12,7 @@ export class Home extends Component {
 
             <div>
                 <NavbarDisplay />
-                {/* <PoolImage /> */}
+            
                         <Form
                             handleClick={this.props.handleClick}
                             handleInputChange={this.props.handleInputChange}

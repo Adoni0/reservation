@@ -1,10 +1,6 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import swimmer from '../../images/swimmer.jpg';
-import swimmer1 from '../../images/swimmer1.jpg';
-import swimmer2 from '../../images/swimmer2.jpg';
-import water from '../../images/water.jpg';
 // import Moment from 'react-moment';
 
 export function Form(props) {
@@ -37,17 +33,6 @@ export function Form(props) {
     )
 }
 
-
-export function PoolImage() {
-    return (
-        <>
-            {/* <img className="swimmer" src={swimmer} />
-            <img className="swimmer1" src={swimmer1} />
-            <img className="swimmer2" src={swimmer2} /> */}
-             {/* <img className="water" src={water} /> */}
-        </>
-    )
-}
 
 export function Footer() {
     return (

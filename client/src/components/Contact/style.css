@@ -11,6 +11,9 @@ label{
   display: flex;
   justify-content: center;
   background-color: #282c34;
+  padding-top: 20px;
+  padding-bottom: 90px;
+  margin-top: -40px;
 }
 
 /* body{

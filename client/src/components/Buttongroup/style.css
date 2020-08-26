@@ -1,29 +1,3 @@
-.swimmer {
-  width: 100%;
-  height: 200px; 
-  border-bottom: outset;
-}
-
-.swimmer1 {
-  width: 100%;
-  height: 200px;
-  margin-top: 10px;
-  border-bottom: outset;
-  border-top: inset;
-}
-
-.swimmer2 {
-  width: 100%;
-  height: 200px;
-  margin-top: 10px;
-  border-bottom: outset;
-  border-top: inset;
-}
-
-.water {
-  z-index: 5;
-}
-
 .row {
     margin-top: 250px;   
     /* z-index: 1; */
@@ -31,7 +5,7 @@
 
 .lane{
   font-weight: bold;
-  color: black
+  color: #ffff;
 }
 
 .calendar{
