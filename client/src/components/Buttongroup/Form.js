@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export function Form(props) {
     return (
-        <div className="row">
+        <div className="dateAndTime row">
             <form className="calendar">
                 <label className="lane" id="l1">Select a Date: </label>
                 <input type="date" name="date" value={props.value} onChange={props.handleInputChange} />
