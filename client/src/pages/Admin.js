@@ -9,22 +9,27 @@ import Table from '../components/Table';
 export default class Admin extends Component {
 
     state = {
-        reservations: [],
-        date: [],
-        name: [],
-        email: '',
-        phone: '',
-        time: '',
-        today: new Date()
+        reservations: []
+        // date: [],
+        // name: [],
+        // email: '',
+        // phone: '',
+        // time: '',
+        // today: new Date()
     }
 
     componentDidMount() { //display reservations for the upcoming week
 
+
         API.getAllReservations()
             .then(data => {
+                const resy = [...this.state.reservations]
                 for(const reserved of data.data){
-                    this.setState({ reservations: reserved })
-                    // console.log(this.state.reservations);
+
+                    resy.push(reserved);
+                    // console.log(resy);
+                    this.setState({ reservations: resy })
+                    
                 }
 
             })
@@ -34,7 +39,7 @@ export default class Admin extends Component {
     //<Moment format="YYYY-MM-DD" add={{days: 1}}>{this.state.today}</Moment>
 
     render() {
-        console.log(this.state.reservations);
+        
         return (
             <>
                 <nav className="navbar navbar-expand-lg navbar-light">
@@ -79,7 +84,8 @@ export default class Admin extends Component {
                                     </thead>
                                     <tbody>
                                    {this.state.reservations.length ? this.state.reservations.map(reservation => (
-                                        <Table 
+                                        <Table
+                                        key={reservation._id} 
                                         date={reservation.date}
                                         name={reservation.name}
                                         email={reservation.email}
@@ -88,194 +94,7 @@ export default class Admin extends Component {
                                         />
                                    )) : console.log(`error`)}
                                         
-                                        {/* {this.state.reservations.length ? this.state.reservations.map(reservation => (
-
-                                            <tr>
-                                                <td className="text-center text-muted">{reservation.date}</td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">{reservation.name}</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">{reservation.email}</td>
-                                                <td className="text-center">
-                                                    <div>{reservation.phone}</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <div>{reservation.time}</div>
-                                                </td>
-                                            </tr>
-
-                                        )) : null} */}
-                                        {/* <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 1 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">John Doe</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">Madrid</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-warning">Pending</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 2 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">Ruben Tillman</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">Berlin</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-success">Completed</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 3 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">Elliot Huber</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">London</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-danger">In Progress</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 4 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">Vinnie Wagstaff</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">Amsterdam</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-info">On Hold</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 5 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">Vinnie Wagstaff</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">Amsterdam</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-info">On Hold</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 6 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">Vinnie Wagstaff</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">Amsterdam</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-info">On Hold</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 7 }}>{this.state.today}</Moment></td>
-                                                <td>
-                                                    <div className="widget-content p-0">
-                                                        <div className="widget-content-wrapper">
-                                                            <div className="widget-content-left mr-3">
-
-                                                            </div>
-                                                            <div className="widget-content-left flex2">
-                                                                <div className="widget-heading">Vinnie Wagstaff</div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="text-center">Amsterdam</td>
-                                                <td className="text-center">
-                                                    <div className="badge badge-info">On Hold</div>
-                                                </td>
-                                                <td className="text-center">
-                                                    <button type="button" className="btn btn-primary btn-sm">Details</button>
-                                                </td>
-                                            </tr> */}
+                    
                                     </tbody>
                                 </table>
                             </div>
