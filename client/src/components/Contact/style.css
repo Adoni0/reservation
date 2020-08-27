@@ -20,7 +20,7 @@ label{
   background-color: #282c34;
 } */
 
-.btn {
+.btn-primary {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -31,7 +31,7 @@ label{
     -webkit-transition-property: transform;
     transition-property: transform;
   }
-  .btn:hover, .btn:focus, .btn:active {
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }

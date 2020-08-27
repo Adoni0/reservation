@@ -1,33 +1,40 @@
 import React, { Component } from 'react'
 import API from '../util/API'
 import pvrpd from '../images/pvrpd.jpg';
-import Moment from 'react-moment'
+// import { Footer } from '../components/Buttongroup/Form';
+import Moment from 'react-moment';
+import Table from '../components/Table';
 
 
 export default class Admin extends Component {
 
     state = {
+        reservations: [],
         date: [],
-        name: '',
+        name: [],
         email: '',
         phone: '',
-        time: ''
+        time: '',
+        today: new Date()
     }
 
     componentDidMount() { //display reservations for the upcoming week
 
         API.getAllReservations()
             .then(data => {
-                console.log(data.data)
+                for(const reserved of data.data){
+                    this.setState({ reservations: reserved })
+                    // console.log(this.state.reservations);
+                }
 
             })
             .catch(err => console.log(err));
     }
 
+    //<Moment format="YYYY-MM-DD" add={{days: 1}}>{this.state.today}</Moment>
+
     render() {
-
-        const today = new Date();
-
+        console.log(this.state.reservations);
         return (
             <>
                 <nav className="navbar navbar-expand-lg navbar-light">
@@ -47,46 +54,78 @@ export default class Admin extends Component {
                     </div>
                 </nav>
 
-                <div className="admin">
-                    {/* <h1>Admin Page</h1> */}
 
-
-                    <div className="row admin-row">
-                        <div className="col md-12">
-                            <div className=" card main-card mb-3">
-                                <div className="card-header">Reservations Made
+                <div className="row admin-row">
+                    <div className="col md-12">
+                        <div className=" card main-card mb-3">
+                            <div className="card-header">Reservations Made
                                         <div className="btn-actions-pane-right">
-                                        <div role="group" className="btn-group-sm btn-group">
-                                            <button className="active btn btn-info">Current Week</button>
-                                            <button className="btn btn-info">Filter Day</button>
-                                        </div>
+                                    <div role="group" className="btn-group-sm btn-group">
+                                        <button className="active btn btn-info">Current Week</button>
+                                        <button className="btn btn-info">Filter Day</button>
                                     </div>
                                 </div>
-                                <div className="table-responsive">
-                                    <table className="align-middle mb-0 table table-borderless table-striped table-hover">
-                                        <thead>
+                            </div>
+                            <div className="table-responsive">
+                                <table className="align-middle mb-0 table table-borderless table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th className="text-center">Date</th>
+                                            <th>Name</th>
+                                            <th className="text-center">Email</th>
+                                            <th className="text-center">Phone</th>
+                                            <th className="text-center">Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                   {this.state.reservations.length ? this.state.reservations.map(reservation => (
+                                        <Table 
+                                        date={reservation.date}
+                                        name={reservation.name}
+                                        email={reservation.email}
+                                        phone={reservation.phone}
+                                        timeSlot={reservation.timeSlot}
+                                        />
+                                   )) : console.log(`error`)}
+                                        
+                                        {/* {this.state.reservations.length ? this.state.reservations.map(reservation => (
+
                                             <tr>
-                                                <th className="text-center">Date</th>
-                                                <th>Name</th>
-                                                <th className="text-center">Email</th>
-                                                <th className="text-center">Phone</th>
-                                                <th className="text-center">Time</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 1}}>{today}</Moment></td>
+                                                <td className="text-center text-muted">{reservation.date}</td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" />
-                                                                </div>
+
+                                                            </div>
+                                                            <div className="widget-content-left flex2">
+                                                                <div className="widget-heading">{reservation.name}</div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td className="text-center">{reservation.email}</td>
+                                                <td className="text-center">
+                                                    <div>{reservation.phone}</div>
+                                                </td>
+                                                <td className="text-center">
+                                                    <div>{reservation.time}</div>
+                                                </td>
+                                            </tr>
+
+                                        )) : null} */}
+                                        {/* <tr>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 1 }}>{this.state.today}</Moment></td>
+                                                <td>
+                                                    <div className="widget-content p-0">
+                                                        <div className="widget-content-wrapper">
+                                                            <div className="widget-content-left mr-3">
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">John Doe</div>
-                                                                <div className="widget-subheading opacity-7">Web Developer</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -100,18 +139,16 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 2}}>{today}</Moment></td>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 2 }}>{this.state.today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" />
-                                                                </div>
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">Ruben Tillman</div>
-                                                                <div className="widget-subheading opacity-7">Etiam sit amet orci eget</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -125,18 +162,16 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 3}}>{today}</Moment></td>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 3 }}>{this.state.today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" />
-                                                                </div>
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">Elliot Huber</div>
-                                                                <div className="widget-subheading opacity-7">Lorem ipsum dolor sic</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -150,17 +185,16 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 4}}>{today}</Moment></td>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 4 }}>{this.state.today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">Vinnie Wagstaff</div>
-                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -174,17 +208,16 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 5}}>{today}</Moment></td>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 5 }}>{this.state.today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">Vinnie Wagstaff</div>
-                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -198,17 +231,16 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 6}}>{today}</Moment></td>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 6 }}>{this.state.today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">Vinnie Wagstaff</div>
-                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,17 +254,16 @@ export default class Admin extends Component {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="text-center text-muted"><Moment add={{days: 7}}>{today}</Moment></td>
+                                                <td className="text-center text-muted"><Moment format="YYYY-MM-DD" add={{ days: 7 }}>{this.state.today}</Moment></td>
                                                 <td>
                                                     <div className="widget-content p-0">
                                                         <div className="widget-content-wrapper">
                                                             <div className="widget-content-left mr-3">
-                                                                <div className="widget-content-left">
-                                                                    <img width={40} className="rounded-circle" src='' alt="Avatar" /></div>
+
                                                             </div>
                                                             <div className="widget-content-left flex2">
                                                                 <div className="widget-heading">Vinnie Wagstaff</div>
-                                                                <div className="widget-subheading opacity-7">UI Designer</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -244,22 +275,17 @@ export default class Admin extends Component {
                                                 <td className="text-center">
                                                     <button type="button" className="btn btn-primary btn-sm">Details</button>
                                                 </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div className="d-block text-center card-footer">
-                                    <button className="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i className="pe-7s-trash btn-icon-wrapper"> </i></button>
-                                    <button className="btn-wide btn btn-success">Save</button>
-                                </div>
+                                            </tr> */}
+                                    </tbody>
+                                </table>
                             </div>
+
                         </div>
                     </div>
-
-
-
-
                 </div>
+
+
+                {/* <Footer /> */}
             </>
         )
     }
