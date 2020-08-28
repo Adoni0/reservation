@@ -11,6 +11,7 @@ export default class Admin extends Component {
 
     state = {
         reservations: [],
+        resFilter: [],
         dateFilter: ''
         // date: [],
         // name: [],
@@ -18,6 +19,30 @@ export default class Admin extends Component {
         // phone: '',
         // time: '',
         // today: new Date()
+    }
+
+    handleCurrentWeek = (e) => {
+        e.preventDefault();
+
+        API.getAllReservations()
+        .then(data => {
+            const resy = [...this.state.reservations]
+           
+            for (const reserved of data.data) {
+
+                for(const resyIndex of resy){
+
+                    if(resyIndex._id === reserved._id){
+                        console.log(resyIndex._id)
+                    }
+                    return null
+                }  
+
+            }
+
+        })
+        .catch(err => console.log(err));
+
     }
 
     componentDidMount() { //display reservations for the upcoming week
@@ -30,7 +55,7 @@ export default class Admin extends Component {
 
                     resy.push(reserved);
                     // console.log(resy);
-                    this.setState({ reservations: resy })
+                    this.setState({ reservations: resy, resFilter: resy })
 
                 }
 
@@ -47,26 +72,12 @@ export default class Admin extends Component {
 
     handleFilterByDay = (e) => {
         e.preventDefault();
-        // API.getAllReservations()
-        // .then(data => {
-            const resy = [...this.state.reservations]
+    
+            const resy = [...this.state.resFilter]
             const test = resy.filter(day => this.state.dateFilter === day.date)
             console.log(test);
             this.setState({ reservations: test })
-            // for(const reserved of data.data){
-            //     if(this.state.dateFilter === reserved.date){
-            //         // console.log(reserved)
-            //         // resy = []
-            //         // resy.push(reserved)
-            
-            //         // this.setState({ reservations: resy })
-            //         this.setState({ reservations: reserved })
-            //     } else {
-            //         return null;
-            //     }
-            // }
-        // })
-        // .catch(err => console.log(err));
+           
         
 
     }
@@ -107,7 +118,7 @@ export default class Admin extends Component {
                             <div className="card-header">Reservations Made
                                         <div className="btn-actions-pane-right">
                                     <div role="group" className="btn-group-sm btn-group">
-                                        <button className="active btn btn-info">Current Week</button>
+                                        <button onClick={this.handleCurrentWeek} className="active btn btn-info">Current Week</button>
                                         <button className="btn btn-info" data-toggle="modal" data-target="#exampleModal">Filter Day</button>
                                     </div>
                                 </div>
