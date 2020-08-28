@@ -10,7 +10,8 @@ import Modal from '../components/Modal';
 export default class Admin extends Component {
 
     state = {
-        reservations: []
+        reservations: [],
+        dateFilter: ''
         // date: [],
         // name: [],
         // email: '',
@@ -37,6 +38,39 @@ export default class Admin extends Component {
             .catch(err => console.log(err));
     }
 
+    handleInputFilterChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleFilterByDay = (e) => {
+        e.preventDefault();
+        // API.getAllReservations()
+        // .then(data => {
+            const resy = [...this.state.reservations]
+            const test = resy.filter(day => this.state.dateFilter === day.date)
+            console.log(test);
+            this.setState({ reservations: test })
+            // for(const reserved of data.data){
+            //     if(this.state.dateFilter === reserved.date){
+            //         // console.log(reserved)
+            //         // resy = []
+            //         // resy.push(reserved)
+            
+            //         // this.setState({ reservations: resy })
+            //         this.setState({ reservations: reserved })
+            //     } else {
+            //         return null;
+            //     }
+            // }
+        // })
+        // .catch(err => console.log(err));
+        
+
+    }
+
     //<Moment format="YYYY-MM-DD" add={{days: 1}}>{this.state.today}</Moment>
 
     render() {
@@ -60,7 +94,11 @@ export default class Admin extends Component {
                     </div>
                 </nav>
 
-                <Modal />
+                <Modal
+                    dateFilter={this.state.dateFilter}
+                    handleFilterByDay={this.handleFilterByDay}
+                    handleInputFilterChange={this.handleInputFilterChange}
+                />
 
 
                 <div className="row admin-row">
