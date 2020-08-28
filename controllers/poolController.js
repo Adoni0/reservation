@@ -2,8 +2,8 @@ const db = require('../models/');
 
 module.exports = {
     create: function(req, res){
-        console.log(req.body.date);
-        console.log(req.body.timeSlots.time);
+        // console.log(req.body.date);
+        // console.log(req.body.timeSlots.time);
 
         db.Reservations.count({
             date: req.body.date,
@@ -38,6 +38,12 @@ module.exports = {
         .then(reservation => {
             res.json(reservation)
         })
+        .catch(err => res.json(err));
+    },
+
+    findById: (req, res) => {
+        db.Reservations.findById(id)
+        .then(resy => res.json(resy))
         .catch(err => res.json(err));
     }
 }

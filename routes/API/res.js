@@ -5,5 +5,7 @@ router.route('/')
   .get(poolController.findAll)
   .post(poolController.create);
 
+  router.route('/:id')
+  .get(poolController.findById);
 
 module.exports = router;

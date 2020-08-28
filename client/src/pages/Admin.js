@@ -4,6 +4,7 @@ import pvrpd from '../images/pvrpd.jpg';
 // import { Footer } from '../components/Buttongroup/Form';
 import Moment from 'react-moment';
 import Table from '../components/Table';
+import Modal from '../components/Modal';
 
 
 export default class Admin extends Component {
@@ -24,12 +25,12 @@ export default class Admin extends Component {
         API.getAllReservations()
             .then(data => {
                 const resy = [...this.state.reservations]
-                for(const reserved of data.data){
+                for (const reserved of data.data) {
 
                     resy.push(reserved);
                     // console.log(resy);
                     this.setState({ reservations: resy })
-                    
+
                 }
 
             })
@@ -39,7 +40,7 @@ export default class Admin extends Component {
     //<Moment format="YYYY-MM-DD" add={{days: 1}}>{this.state.today}</Moment>
 
     render() {
-        
+
         return (
             <>
                 <nav className="navbar navbar-expand-lg navbar-light">
@@ -59,6 +60,8 @@ export default class Admin extends Component {
                     </div>
                 </nav>
 
+                <Modal />
+
 
                 <div className="row admin-row">
                     <div className="col md-12">
@@ -67,7 +70,7 @@ export default class Admin extends Component {
                                         <div className="btn-actions-pane-right">
                                     <div role="group" className="btn-group-sm btn-group">
                                         <button className="active btn btn-info">Current Week</button>
-                                        <button className="btn btn-info">Filter Day</button>
+                                        <button className="btn btn-info" data-toggle="modal" data-target="#exampleModal">Filter Day</button>
                                     </div>
                                 </div>
                             </div>
@@ -83,18 +86,18 @@ export default class Admin extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                   {this.state.reservations.length ? this.state.reservations.map(reservation => (
-                                        <Table
-                                        key={reservation._id} 
-                                        date={reservation.date}
-                                        name={reservation.name}
-                                        email={reservation.email}
-                                        phone={reservation.phone}
-                                        timeSlot={reservation.timeSlot}
-                                        />
-                                   )) : console.log(`error`)}
-                                        
-                    
+                                        {this.state.reservations.length ? this.state.reservations.map(reservation => (
+                                            <Table
+                                                key={reservation._id}
+                                                date={reservation.date}
+                                                name={reservation.name}
+                                                email={reservation.email}
+                                                phone={reservation.phone}
+                                                timeSlot={reservation.timeSlot}
+                                            />
+                                        )) : console.log(`error`)}
+
+
                                     </tbody>
                                 </table>
                             </div>
