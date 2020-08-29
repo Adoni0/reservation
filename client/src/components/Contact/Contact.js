@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 
 export default function Contact(props) {
@@ -21,7 +22,8 @@ export default function Contact(props) {
                     <input type="tel" name="phone" onChange={props.handleInputChange} value={props.phone} className="form-control" id="exampleInputPassword1" />
                 </div>
                 
-                <button onClick={props.handleSubmit} type="submit" className="btn btn-primary">Reserve</button>
+                {/* <a href='/' className="btn btn-primary" onClick={props.handleSubmit}>Reserve</a> */}
+                <button onClick={props.handleSubmit} type="submit" className="btn btn-primary"><Link className="changeTextColor" to="/">Reserve</Link></button>
             </form>
         </div>
     )

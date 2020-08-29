@@ -12,47 +12,66 @@ export default class Admin extends Component {
     state = {
         reservations: [],
         resFilter: [],
-        dateFilter: ''
+        dateFilter: '',
         // date: [],
         // name: [],
         // email: '',
         // phone: '',
         // time: '',
-        // today: new Date()
+        today: new Date()
     }
 
     handleCurrentWeek = (e) => {
         e.preventDefault();
 
-        API.getAllReservations()
-        .then(data => {
-            const resy = [...this.state.reservations]
+        const current = [...this.state.resFilter]
+        this.setState({ reservations: current })
+
+        // API.getAllReservations()
+        // .then(data => {
+        //     const resy = [...this.state.reservations]
            
-            for (const reserved of data.data) {
+        //     for (const reserved of data.data) {
 
-                for(const resyIndex of resy){
+        //         for(const resyIndex of resy){
 
-                    if(resyIndex._id === reserved._id){
-                        console.log(resyIndex._id)
-                    }
-                    return null
-                }  
+        //             if(resyIndex._id === reserved._id){
+        //                 console.log(resyIndex._id)
+        //             }
+        //             return null
+        //         }  
 
-            }
+        //     }
 
-        })
-        .catch(err => console.log(err));
+        // })
+        // .catch(err => console.log(err));
 
     }
 
     componentDidMount() { //display reservations for the upcoming week
-
-
+        var today = this.state.today;
+        var dd = today.getDate();
+        
+        var mm = today.getMonth()+1; 
+        var yyyy = today.getFullYear();
+        if(dd<10) 
+        {
+            dd='0'+dd;
+        } 
+        
+        if(mm<10) 
+        {
+            mm='0'+mm;
+        } 
+        today = yyyy + '-' + mm + '-' + dd;
+        console.log(today);
+        
         API.getAllReservations()
             .then(data => {
                 const resy = [...this.state.reservations]
+                
                 for (const reserved of data.data) {
-
+                    
                     resy.push(reserved);
                     // console.log(resy);
                     this.setState({ reservations: resy, resFilter: resy })
@@ -76,9 +95,7 @@ export default class Admin extends Component {
             const resy = [...this.state.resFilter]
             const test = resy.filter(day => this.state.dateFilter === day.date)
             console.log(test);
-            this.setState({ reservations: test })
-           
-        
+            this.setState({ reservations: test }) 
 
     }
 

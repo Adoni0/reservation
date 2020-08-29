@@ -78,9 +78,11 @@ class App extends Component {
       }
     })
       .then(data => {
-        console.log("Success!")
+        // console.log("Success!")
+        alert('Reservation Saved!')
       })
       .catch(err => console.log(err));
+      
   }
 
 

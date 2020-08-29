@@ -19,6 +19,13 @@ label{
 /* body{
   background-color: #282c34;
 } */
+.changeTextColor {
+  color: #ffffff;
+}
+
+.changeTextColor:hover {
+  text-decoration: none;
+}
 
 .btn-primary {
     display: inline-block;
@@ -30,6 +37,7 @@ label{
     transition-duration: 0.3s;
     -webkit-transition-property: transform;
     transition-property: transform;
+    color: #ffffff;
   }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     -webkit-transform: scale(1.1);

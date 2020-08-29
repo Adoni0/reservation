@@ -9,7 +9,7 @@ export function Form(props) {
             <form className="calendar">
                 <label className="lane" id="l1">Select a Date: </label>
                 <input type="date" name="date" value={props.value} onChange={props.handleInputChange} />
-                <button onClick={props.handleClick}>Submit</button>
+                <button className="submitDate" onClick={props.handleClick}>Submit</button>
 
                 <div style={{ "display": props.submitForm }} className="lap-btns">
                     <button onClick={props.amClick} type="button" className="btn btn-light ampm">AM Lap Swim</button>
@@ -17,13 +17,13 @@ export function Form(props) {
                 </div>
 
                 <div className="am-link" style={{ "display": props.amButton }}>
-                    <button type="button" onClick={props.nineAM} className="btn btn-outline-info"><Link to="/reserve">9AM</Link></button>
-                    <button type="button" onClick={props.tenAM} className="btn btn-outline-info"><Link to="/reserve">10AM</Link></button>
+                    <button type="button" onClick={props.nineAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">9AM</Link></button>
+                    <button type="button" onClick={props.tenAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">10AM</Link></button>
                 </div>
 
                 <div className="pm-link" style={{ "display": props.pmButton }}>
-                    <button type="button" onClick={props.fivePM} className="btn btn-outline-info"><Link to="/reserve">5PM</Link></button>
-                    <button type="button" onClick={props.sixPM} className="btn btn-outline-info"><Link to="/reserve">6PM</Link></button>
+                    <button type="button" onClick={props.fivePM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">5PM</Link></button>
+                    <button type="button" onClick={props.sixPM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">6PM</Link></button>
                 </div>
             </form>
 
