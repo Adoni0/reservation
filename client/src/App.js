@@ -4,9 +4,13 @@ import './App.css';
 import Home from "./pages/Home";
 import Reservations from "./pages/Reservations";
 import Admin from './pages/Admin';
-import NoMatch from './pages/NoMatch'
+import NoMatch from './pages/NoMatch';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import PasswordReset from './pages/PasswordReset';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
+
 
 class App extends Component {
   state = {
@@ -30,7 +34,7 @@ class App extends Component {
     this.setState({
       [name]: value
     })
-   
+
   }
 
   amClick = e => {
@@ -82,7 +86,7 @@ class App extends Component {
         alert('Reservation Saved!')
       })
       .catch(err => console.log(err));
-      
+
   }
 
 
@@ -113,8 +117,10 @@ class App extends Component {
             email={this.state.email}
             phone={this.state.phone}
           />} />
-          <Route exact path="/admin" component={Admin}
-          />
+          <Route exact path="/admin" component={Admin}/>
+          <Route exact path="/login" component={SignIn}/>
+          <Route exact path="/signUp" component={SignUp}/>
+          <Route exact path="/passwordReset" component={PasswordReset}/>
           <Route component={NoMatch} />
         </Switch>
       </Router >

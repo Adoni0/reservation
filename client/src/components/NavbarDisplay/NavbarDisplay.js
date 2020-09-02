@@ -21,7 +21,9 @@ export default function NavbarDisplay() {
                             
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
-                            <a className="admin" href="/admin">Admin</a>
+                            {/* <a className="admin" href="/admin">Admin</a> */}
+                            <a className="admin" href="/login">Admin</a>
+
                         </form>
                     </div>
                 </nav>
