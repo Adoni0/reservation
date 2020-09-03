@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import Table from '../components/Table';
 import Modal from '../components/Modal';
 import { auth } from '../components/Firebase';
+import { UserContext } from '../providers/UserProvider';
 
 
 export default class Admin extends Component {
@@ -14,7 +15,8 @@ export default class Admin extends Component {
         reservations: [],
         resFilter: [],
         dateFilter: '',
-        today: new Date()
+        today: new Date(),
+        user: useContext(UserContext)
     }
 
 
@@ -81,6 +83,8 @@ export default class Admin extends Component {
     //<Moment format="YYYY-MM-DD" add={{days: 1}}>{this.state.today}</Moment>
 
     render() {
+        // const user = useContext(UserContext);
+        const {displayName, email} = this.state.user;
 
         return (
             <>
@@ -94,6 +98,9 @@ export default class Admin extends Component {
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
                                 <a className="homeLink" href="/">Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <p>{displayName}</p>
                             </li>
 
                         </ul>

@@ -1,4 +1,3 @@
-import React from 'react'
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -14,6 +13,11 @@ const firebaseConfig = {
     measurementId: "G-6XD8PNF0Y6"
 };
 
+firebase.initializeApp(firebaseConfig);
+    export const auth = firebase.auth();
+    export const firestore = firebase.firestore();
+
+
 export const generateUserDocument = async (user, additionalData) => {
     if (!user) return;
 
@@ -21,12 +25,11 @@ export const generateUserDocument = async (user, additionalData) => {
     const snapshot = await userRef.get();
 
     if (!snapshot.exists) {
-        const { email, displayName, photoURL } = user;
+        const { email, displayName } = user;
         try {
           await userRef.set({
             displayName,
             email,
-            photoURL,
             ...additionalData
           });
         } catch (error) {
@@ -48,8 +51,4 @@ export const generateUserDocument = async (user, additionalData) => {
       }
     };
 
-
-    firebase.initializeApp(firebaseConfig);
-    export const auth = firebase.auth();
-    export const firestore = firebase.firestore();
 

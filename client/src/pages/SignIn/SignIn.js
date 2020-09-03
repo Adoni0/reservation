@@ -33,16 +33,17 @@ const SignIn = () => {
 
       <form className="siForm">
         <h1 style={{paddingBottom: '10px'}}>Sign In</h1>
-        <div class="form-group">
-          <input type="email" name="userEmail" placeholder="Email" value={email} onChange={(event) => onChangeHandler(event)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        {error !== null && <div>{error}</div>}
+        <div className="form-group">
+          <input type="email" id="userEmail" name="userEmail" placeholder="Email" value={email} onChange={(event) => onChangeHandler(event)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         
         </div>
-        <div class="form-group">
+        <div className="form-group">
         
-          <input type="password" name="userPassword" placeholder="Password" class="form-control" value={password} onChange={(event) => onChangeHandler(event)} id="exampleInputPassword1" />
+          <input type="password" id="userPassword" name="userPassword" placeholder="Password" className="form-control" value={password} onChange={(event) => onChangeHandler(event)} id="exampleInputPassword1" />
         </div>
        
-        <button type="submit" class="btn btn-success" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
+        <button type="submit" className="btn btn-success" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
 
         <p style={{paddingTop: '10px'}}>Dont have an Account? | <Link to="/signUp">Sign Up here!</Link></p>
         

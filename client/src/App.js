@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
 import UserProvider from './providers/UserProvider';
 import Application from './components/Application';
+import Provide from './components/Provide';
 
 
 class App extends Component {
@@ -120,13 +121,9 @@ class App extends Component {
             phone={this.state.phone}
           />} />
           <Route exact path="/admin" component={Admin}/>
-          {/* <Route exact path="/login" component={SignIn}/> */}
+          <Route exact path="/signIn" component={SignIn}/>
           <Route exact path="/signUp" component={SignUp}/>
-          <Route exact path="/login" render={() => 
-          <UserProvider>
-            <Application />
-          </UserProvider>
-          }/>
+          <Route exact path="/login" component={Provide}/>
           <Route exact path="/passwordReset" component={PasswordReset}/>
           <Route component={NoMatch} />
         </Switch>
