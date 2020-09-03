@@ -1,0 +1,11 @@
+.signInContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #282c34;
+    color: #ffffff;
+    height: 750px;
+}
+
+.siForm {
+    margin-top: 200px;
+}

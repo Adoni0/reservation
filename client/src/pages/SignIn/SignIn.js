@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import './SignIn.css';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+
   const signInWithEmailAndPasswordHandler =
     (event, email, password) => {
       event.preventDefault();
@@ -22,29 +24,29 @@ const SignIn = () => {
   };
 
   return (
-    <>
-    <h1>Sign In</h1>
-    <form>
-      <div class="form-group">
-        <label htmlFor="exampleInputEmail1">Email address</label>
-        <input type="email" value={email} onChange={(event) => onChangeHandler(event)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      </div>
-      <div class="form-group">
-        <label htmlFor="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" value={password} onChange={(event) => onChangeHandler(event)} id="exampleInputPassword1" />
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
-    </form>
-    <p>Dont have an Account?</p>
-    <Link to="/signUp">Sign Up here!</Link>
-    <br/>
-    <Link to="/passwordReset">Forgot Passowrd?</Link>
-    </>
+    
+    <div className="signInContainer">
+
+      <form className="siForm">
+        <h1 style={{paddingBottom: '10px'}}>Sign In</h1>
+        <div class="form-group">
+          <input type="email" name="userEmail" placeholder="Email" value={email} onChange={(event) => onChangeHandler(event)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        
+        </div>
+        <div class="form-group">
+        
+          <input type="password" name="userPassword" placeholder="Password" class="form-control" value={password} onChange={(event) => onChangeHandler(event)} id="exampleInputPassword1" />
+        </div>
+       
+        <button type="submit" class="btn btn-success" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
+
+        <p style={{paddingTop: '10px'}}>Dont have an Account? | <Link to="/signUp">Sign Up here!</Link></p>
+        
+        <Link to="/passwordReset">Forgot Password?</Link>
+      </form>
+
+    </div>
+    
 
   );
 };
