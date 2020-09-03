@@ -10,6 +10,8 @@ import SignUp from './pages/SignUp';
 import PasswordReset from './pages/PasswordReset';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
+import UserProvider from './providers/UserProvider';
+import Application from './components/Application';
 
 
 class App extends Component {
@@ -118,8 +120,13 @@ class App extends Component {
             phone={this.state.phone}
           />} />
           <Route exact path="/admin" component={Admin}/>
-          <Route exact path="/login" component={SignIn}/>
+          {/* <Route exact path="/login" component={SignIn}/> */}
           <Route exact path="/signUp" component={SignUp}/>
+          <Route exact path="/login" render={() => 
+          <UserProvider>
+            <Application />
+          </UserProvider>
+          }/>
           <Route exact path="/passwordReset" component={PasswordReset}/>
           <Route component={NoMatch} />
         </Switch>

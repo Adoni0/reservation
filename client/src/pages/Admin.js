@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, useContext } from 'react'
 import API from '../util/API'
 import pvrpd from '../images/pvrpd.jpg';
 // import { Footer } from '../components/Buttongroup/Form';
 import Moment from 'react-moment';
 import Table from '../components/Table';
 import Modal from '../components/Modal';
+import { auth } from '../components/Firebase';
 
 
 export default class Admin extends Component {
@@ -13,13 +14,9 @@ export default class Admin extends Component {
         reservations: [],
         resFilter: [],
         dateFilter: '',
-        // date: [],
-        // name: [],
-        // email: '',
-        // phone: '',
-        // time: '',
         today: new Date()
     }
+
 
     handleCurrentWeek = (e) => {
         e.preventDefault();
@@ -27,24 +24,6 @@ export default class Admin extends Component {
         const current = [...this.state.resFilter]
         this.setState({ reservations: current })
 
-        // API.getAllReservations()
-        // .then(data => {
-        //     const resy = [...this.state.reservations]
-           
-        //     for (const reserved of data.data) {
-
-        //         for(const resyIndex of resy){
-
-        //             if(resyIndex._id === reserved._id){
-        //                 console.log(resyIndex._id)
-        //             }
-        //             return null
-        //         }  
-
-        //     }
-
-        // })
-        // .catch(err => console.log(err));
 
     }
 
@@ -118,6 +97,11 @@ export default class Admin extends Component {
                             </li>
 
                         </ul>
+
+                        <form className="form-inline my-2 my-lg-0">
+                        <button onClick = {() => {auth.signOut()}}>Sign out</button>
+
+                        </form>
 
                     </div>
                 </nav>
