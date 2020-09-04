@@ -1,0 +1,325 @@
+.chart-row {
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.admin-navbar{
+    background-color: #282c34;
+}
+
+.widget-chart {
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+.widget-chart .widget-chart-content {
+  position: relative;
+  z-index: 5;
+}
+.widget-chart .widget-chart-content-lg {
+  padding: 2rem 0 1rem 2rem;
+}
+.widget-chart .widget-chart-content-lg .widget-numbers {
+  margin-bottom: 0;
+}
+.widget-chart .widget-chart-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.25;
+  z-index: 6;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  overflow: hidden;
+}
+.widget-chart .widget-numbers {
+  font-weight: bold;
+  font-size: 2.5rem;
+  display: block;
+  line-height: 1;
+  margin: 1rem auto;
+}
+.widget-chart .widget-numbers + .widget-description,
+.widget-chart .widget-numbers + .widget-subheading {
+  margin-top: -0.5rem;
+}
+.widget-chart .widget-subheading {
+  margin: -0.5rem 0 0;
+  display: block;
+  opacity: 0.6;
+}
+.widget-chart .widget-subheading:first-child {
+  margin-top: 0;
+}
+.widget-chart .widget-subheading + .widget-numbers {
+  margin-top: 0.5rem;
+}
+.widget-subheading {
+  color: rgba(0, 0, 0, 0.8);
+}
+.widget-chart .widget-description {
+  margin: 1rem 0 0;
+}
+.widget-chart .widget-chart-actions {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  z-index: 12;
+}
+.widget-chart .widget-chart-actions .btn-link {
+  font-size: 1.1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0.6;
+}
+.widget-chart .chart-wrapper-relative {
+  position: relative;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.widget-chart-actions {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 12;
+}
+.widget-chart-actions .btn-link {
+  font-size: 1.1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0.6;
+}
+
+.widget-chart:hover .widget-chart-actions .btn-link,
+.widget-content:hover .widget-chart-actions .btn-link {
+  opacity: 1;
+}
+
+.bg-mixed-hopes {
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#c471f5),
+    to(#fa71cd)
+  ) !important;
+  background-image: -o-linear-gradient(
+    bottom,
+    #c471f5 0%,
+    #fa71cd 100%
+  ) !important;
+  background-image: linear-gradient(
+    to top,
+    #c471f5 0%,
+    #fa71cd 100%
+  ) !important;
+}
+
+
+.bg-plum-plate {
+  background-image: -o-linear-gradient(
+    315deg,
+    #667eea 0%,
+    #764ba2 100%
+  ) !important;
+  background-image: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 100%
+  ) !important;
+}
+
+.bg-grow-early {
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#0ba360),
+    to(#3cba92)
+  ) !important;
+  background-image: -o-linear-gradient(
+    bottom,
+    #0ba360 0%,
+    #3cba92 100%
+  ) !important;
+  background-image: linear-gradient(
+    to top,
+    #0ba360 0%,
+    #3cba92 100%
+  ) !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.card-border {
+  -webkit-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
+  border-width: 1px;
+}
+
+.icon-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.icon-wrapper {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.icon-wrapper[class*="border-"] {
+  border-width: 1px;
+  border-style: solid;
+}
+.icon-wrapper .icon-wrapper-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  opacity: 0.2;
+}
+.icon-wrapper .icon-wrapper-bg.bg-light {
+  opacity: 0.08;
+}
+.icon-wrapper i {
+  margin: 0 auto;
+  font-size: 1.7rem;
+  position: relative;
+  z-index: 5;
+}
+.icon-wrapper i:before {
+  margin-top: -3px;
+}
+
+.icon-wrapper-bg {
+  background: rgba(255, 255, 255, 0.1) !important;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+.icon-wrapper-bg {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+a.bg-dark:hover,
+a.bg-dark:focus,
+button.bg-dark:hover,
+button.bg-dark:focus {
+  background-color: #1d2124 !important;
+}
+
+.opacity-9 {
+  opacity: 0.9 !important;
+}
+
+.text-dark {
+  color: #343a40 !important;
+}
+
+a.text-dark:hover,
+a.text-dark:focus {
+  color: #121416 !important;
+}
+
+.card {
+  -webkit-box-shadow: 0 0.46875rem 2.1875rem rgba(0, 0, 0, 0.03),
+    0 0.9375rem 1.40625rem rgba(0, 0, 0, 0.03),
+    0 0.25rem 0.53125rem rgba(0, 0, 0, 0.05),
+    0 0.125rem 0.1875rem rgba(0, 0, 0, 0.03);
+  box-shadow: 0 0.46875rem 2.1875rem rgba(0, 0, 0, 0.03),
+    0 0.9375rem 1.40625rem rgba(0, 0, 0, 0.03),
+    0 0.25rem 0.53125rem rgba(0, 0, 0, 0.05),
+    0 0.125rem 0.1875rem rgba(0, 0, 0, 0.03);
+  border-width: 0;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.card.text-dark.text-white .card-footer,
+.card.text-dark.text-white .card-header,
+.card.text-white .card-footer,
+.card.text-white .card-header {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+.card.text-dark.text-white .card-footer,
+.card.text-dark.text-white .card-header {
+  color: rgba(0, 0, 0, 0.9);
+}
+.card .card-footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+.card > .list-group:first-child .list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.card > .list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.pl-1,
+.px-1 {
+  padding-left: 0.25rem !important;
+}
+
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important;
+}
+
+.card.mb-3 {
+  margin-bottom: 30px !important;
+}
+
+@media (max-width: 767.98px) {
+  body .card.mb-3 {
+    margin-bottom: 15px !important;
+  }
+}
+
+.opacity-8 {
+  opacity: 0.8 !important;
+}

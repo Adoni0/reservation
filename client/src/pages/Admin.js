@@ -5,8 +5,10 @@ import pvrpd from '../images/pvrpd.jpg';
 import Moment from 'react-moment';
 import Table from '../components/Table';
 import Modal from '../components/Modal';
+import ChartBoxes from '../components/ChartBoxes/ChartBoxes';
 import { auth } from '../components/Firebase';
 import { UserContext } from '../providers/UserProvider';
+import { Link } from 'react-router-dom';
 
 
 // export default class Admin extends Component {
@@ -68,7 +70,7 @@ const Admin = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-lg navbar-light admin-navbar">
                 <img className="navbar-brand parksImage" src={pvrpd} />
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -86,7 +88,7 @@ const Admin = () => {
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
-                        <button onClick={() => { auth.signOut() }}>Sign out</button>
+                        <button onClick={() => { auth.signOut() }}><Link to="/">Sign out</Link></button>
 
                     </form>
 
@@ -98,6 +100,8 @@ const Admin = () => {
                 handleFilterByDay={handleFilterByDay}
                 handleInputFilterChange={handleInputFilterChange}
             />
+
+            <ChartBoxes />
 
 
             <div className="row admin-row">
