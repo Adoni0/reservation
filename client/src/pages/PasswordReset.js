@@ -55,7 +55,11 @@ const PasswordReset = () => {
             placeholder="Input your email"
             onChange={onChangeHandler}
           />
-          <button>
+          <button
+          onClick={event => {
+            sendResetEmail(event);
+          }}
+          >
             Send me a reset link
           </button>
         </form>

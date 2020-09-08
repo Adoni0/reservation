@@ -9,7 +9,7 @@ export function Form(props) {
             <form className="calendar">
                 <label className="lane" id="l1">Select a Date: </label>
                 <input type="date" name="date" value={props.value} onChange={props.handleInputChange} />
-                <button className="submitDate" onClick={props.handleClick}>Submit</button>
+                <button className="submitDate" onClick={props.handleClick}>Reserve</button>
 
                 <div style={{ "display": props.submitForm }} className="lap-btns">
                     <button onClick={props.amClick} type="button" className="btn btn-light ampm">AM Lap Swim</button>
@@ -37,7 +37,11 @@ export function Form(props) {
 export function Footer() {
     return (
         <div className="footer">
-            <p>This is some content in sticky footer</p>
+            <p style={{color: 'white', fontSize: '12px'}}>COPYRIGHT © 2020 PLEASANT VALLEY RECREATION & PARK DISTRICT<br/>
+
+1605 E. BURNLEY STREET, CAMARILLO CA 93010 <br/>
+
+TELEPHONE (805) 482-1996</p>
         </div>
     )
 

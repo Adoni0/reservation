@@ -17,6 +17,7 @@ const Admin = () => {
     const [reservations, setReservations] = useState([]);
     const [resFilter, setResfilter] = useState([]);
     const [dateFilter, setDatefilter] = useState('');
+    const [monthCounter, setMonthcounter] = useState(0);
 
     const user = useContext(UserContext);
     const {displayName, email} = user;
@@ -25,11 +26,33 @@ const Admin = () => {
         e.preventDefault();
 
         const current = [...resFilter]
-        setResfilter(current);
+        setReservations(current);
 
     }
 
+    const handleMonthCounter = () => {
+        var today = new Date();
+        var mm = '0' + (today.getMonth()+1);
+        // console.log('mm ' + mm)
+        const duplicate = [...resFilter];
+        
+        for(const resy of duplicate){
+
+            var month = resy.date.split('-')[1];
+            console.log('month ' + month)
+            if(month === mm){
+                setMonthcounter(monthCounter+1)
+            } else {
+                console.log(`No Reservations in Current Month!!`)
+            }
+        }
+            
+        
+    }
+
     useEffect(() => {
+    //   handleMonthCounter()
+
         API.getAllReservations()
             .then(data => {
                 const resy = [...reservations]
@@ -88,7 +111,7 @@ const Admin = () => {
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
-                        <button onClick={() => { auth.signOut() }}><Link to="/">Sign out</Link></button>
+                        <button className="submitDate" onClick={() => { auth.signOut() }}><Link to="/">Sign out</Link></button>
 
                     </form>
 
@@ -101,7 +124,10 @@ const Admin = () => {
                 handleInputFilterChange={handleInputFilterChange}
             />
 
-            <ChartBoxes />
+            <ChartBoxes 
+            monthCounter={monthCounter}
+            resFilter={resFilter}
+            />
 
 
             <div className="row admin-row">
@@ -136,7 +162,7 @@ const Admin = () => {
                                             phone={reservation.phone}
                                             timeSlot={reservation.timeSlot}
                                         />
-                                    )) : console.log(`error`)}
+                                    )) : null}
 
 
                                 </tbody>
