@@ -1,8 +1,6 @@
 import React, { Component, useContext, useState, useEffect } from 'react'
 import API from '../util/API'
 import pvrpd from '../images/pvrpd.jpg';
-// import { Footer } from '../components/Buttongroup/Form';
-import Moment from 'react-moment';
 import Table from '../components/Table';
 import Modal from '../components/Modal';
 import ChartBoxes from '../components/ChartBoxes/ChartBoxes';
@@ -20,9 +18,9 @@ const Admin = () => {
     const [monthCounter, setMonthcounter] = useState(0);
 
     const user = useContext(UserContext);
-    const {displayName, email} = user;
+    const { displayName, email } = user;
 
-    const handleCurrentWeek = (e) => {
+    const handleAllRes = (e) => {
         e.preventDefault();
 
         const current = [...resFilter]
@@ -30,13 +28,54 @@ const Admin = () => {
 
     }
 
+    const handleCurrentWeek = e => {
+        e.preventDefault();
+
+    var todaysDate = new Date();
+    var dd = todaysDate.getDate();
+    var mm = todaysDate.getMonth(); 
+    var yyyy = todaysDate.getFullYear();
+    if(dd<10) 
+    {
+        dd='0'+dd;
+    } 
+
+    if(mm<10) 
+    {
+        mm='0'+mm;
+    } 
+    // todaysDate = yyyy + '-' + mm + '-' + dd;
+
+        const today = new Date(yyyy, mm, dd);
+
+        const sevenDays = 7 * 24 * 60 * 60 * 1000;
+        let currentWeek = today.getTime() + sevenDays;
+
+        let result = [];
+
+        const duplicate = [...resFilter];
+        // console.log(duplicate)
+
+        duplicate.forEach((rez) => {
+            let dateArr = rez.date.split('-');
+            let tmpDate = new Date(dateArr[0], (dateArr[1] - 1), dateArr[2]);
+            // console.log('Time Stamp from arr: ' + tmpDate.getTime());
+
+            if (tmpDate <= currentWeek && tmpDate >= today) {
+                result.push(rez)
+            }
+        });
+
+        setReservations(result);
+        
+    }
+
     const handleMonthCounter = () => {
         var today = new Date();
-        var mm = '0' + (today.getMonth()+1);
-        // console.log('mm ' + mm)
-        
+        var mm = '0' + (today.getMonth() + 1);
+
         const duplicate = resFilter[0];
-        console.log(duplicate);
+        // console.log(duplicate);
 
         let onlyThisMonth = duplicate.filter((resy) => {
             return resy.date.split('-')[1] == mm;
@@ -45,12 +84,12 @@ const Admin = () => {
         setMonthcounter(monthCounter + onlyThisMonth.length);
 
         // console.log(onlyThisMonth);
-            
-        
+
+
     }
 
     useEffect(() => {
-      
+
 
         API.getAllReservations()
             .then(data => {
@@ -63,7 +102,7 @@ const Admin = () => {
                     // console.log(resy);
                     setReservations(resy)
                     setResfilter(resFilter[0] = resy);
-                //    console.log(resFilter)
+                    //    console.log(resFilter)
 
                 }
 
@@ -77,20 +116,20 @@ const Admin = () => {
 
     const handleInputFilterChange = (event) => {
         const { name, value } = event.target;
-        
-        if(name === 'dateFilter'){
+
+        if (name === 'dateFilter') {
             setDatefilter(value)
         }
     }
 
     const handleFilterByDay = (e) => {
         e.preventDefault();
-    
+
         const resy = [...resFilter]
         const test = resy.filter(day => dateFilter === day.date)
         console.log(test);
         setReservations(test);
-    
+
     }
 
 
@@ -127,9 +166,9 @@ const Admin = () => {
                 handleInputFilterChange={handleInputFilterChange}
             />
 
-            <ChartBoxes 
-            monthCounter={monthCounter}
-            resFilter={resFilter}
+            <ChartBoxes
+                monthCounter={monthCounter}
+                resFilter={resFilter}
             />
 
 
@@ -139,8 +178,9 @@ const Admin = () => {
                         <div className="card-header">Reservations Made
                                         <div className="btn-actions-pane-right">
                                 <div role="group" className="btn-group-sm btn-group">
-                                    <button onClick={handleCurrentWeek} className="active btn btn-info">Current Week</button>
-                                    <button className="btn btn-info" data-toggle="modal" data-target="#exampleModal">Filter Day</button>
+                                    <button onClick={handleAllRes} className="active btn btn-info">All Reservations</button>
+                                    <button onClick={handleCurrentWeek} className="btn btn-info">Current Week</button>
+                                    <button className="active btn btn-info" data-toggle="modal" data-target="#exampleModal">Filter Day</button>
                                 </div>
                             </div>
                         </div>
@@ -176,28 +216,9 @@ const Admin = () => {
                 </div>
             </div>
 
-
-            {/* <Footer /> */}
         </>
     )
 
 }
 
 export default Admin;
-
-//     var today = this.state.today;
-//     var dd = today.getDate();
-
-//     var mm = today.getMonth()+1; 
-//     var yyyy = today.getFullYear();
-//     if(dd<10) 
-//     {
-//         dd='0'+dd;
-//     } 
-
-//     if(mm<10) 
-//     {
-//         mm='0'+mm;
-//     } 
-//     today = yyyy + '-' + mm + '-' + dd;
-//     console.log(today);
