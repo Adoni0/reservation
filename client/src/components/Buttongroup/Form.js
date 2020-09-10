@@ -37,7 +37,7 @@ export function Form(props) {
 export function Footer() {
     return (
         <div className="footer">
-            <p style={{color: 'white', fontSize: '12px'}}>COPYRIGHT © 2020 PLEASANT VALLEY RECREATION & PARK DISTRICT<br/>
+            <p style={{color: 'white', fontSize: '10px'}}>COPYRIGHT © 2020 PLEASANT VALLEY RECREATION & PARK DISTRICT<br/>
 
 1605 E. BURNLEY STREET, CAMARILLO CA 93010 <br/>
 

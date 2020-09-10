@@ -34,39 +34,42 @@ const Admin = () => {
         var today = new Date();
         var mm = '0' + (today.getMonth()+1);
         // console.log('mm ' + mm)
-        const duplicate = [...resFilter];
         
-        for(const resy of duplicate){
+        const duplicate = resFilter[0];
+        console.log(duplicate);
 
-            var month = resy.date.split('-')[1];
-            console.log('month ' + month)
-            if(month === mm){
-                setMonthcounter(monthCounter+1)
-            } else {
-                console.log(`No Reservations in Current Month!!`)
-            }
-        }
+        let onlyThisMonth = duplicate.filter((resy) => {
+            return resy.date.split('-')[1] == mm;
+        });
+
+        setMonthcounter(monthCounter + onlyThisMonth.length);
+
+        // console.log(onlyThisMonth);
             
         
     }
 
     useEffect(() => {
-    //   handleMonthCounter()
+      
 
         API.getAllReservations()
             .then(data => {
                 const resy = [...reservations]
+                // console.log(resy);
 
                 for (const reserved of data.data) {
 
                     resy.push(reserved);
                     // console.log(resy);
                     setReservations(resy)
-                    setResfilter(resy)
-                   
+                    setResfilter(resFilter[0] = resy);
+                //    console.log(resFilter)
 
                 }
 
+            })
+            .then(() => {
+                handleMonthCounter()
             })
             .catch(err => console.log(err));
     }, []);
