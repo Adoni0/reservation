@@ -16,6 +16,8 @@ const Admin = () => {
     const [resFilter, setResfilter] = useState([]);
     const [dateFilter, setDatefilter] = useState('');
     const [monthCounter, setMonthcounter] = useState(0);
+    const [weekCounter, setWeekcounter] = useState(0);
+    const [todayCounter, setTodaycounter] = useState(0);
 
     const user = useContext(UserContext);
     const { displayName, email } = user;
@@ -31,20 +33,18 @@ const Admin = () => {
     const handleCurrentWeek = e => {
         e.preventDefault();
 
-    var todaysDate = new Date();
-    var dd = todaysDate.getDate();
-    var mm = todaysDate.getMonth(); 
-    var yyyy = todaysDate.getFullYear();
-    if(dd<10) 
-    {
-        dd='0'+dd;
-    } 
+        var todaysDate = new Date();
+        var dd = todaysDate.getDate();
+        var mm = todaysDate.getMonth();
+        var yyyy = todaysDate.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
 
-    if(mm<10) 
-    {
-        mm='0'+mm;
-    } 
-    // todaysDate = yyyy + '-' + mm + '-' + dd;
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        // todaysDate = yyyy + '-' + mm + '-' + dd;
 
         const today = new Date(yyyy, mm, dd);
 
@@ -54,7 +54,6 @@ const Admin = () => {
         let result = [];
 
         const duplicate = [...resFilter];
-        // console.log(duplicate)
 
         duplicate.forEach((rez) => {
             let dateArr = rez.date.split('-');
@@ -67,7 +66,7 @@ const Admin = () => {
         });
 
         setReservations(result);
-        
+
     }
 
     const handleMonthCounter = () => {
@@ -75,7 +74,6 @@ const Admin = () => {
         var mm = '0' + (today.getMonth() + 1);
 
         const duplicate = resFilter[0];
-        // console.log(duplicate);
 
         let onlyThisMonth = duplicate.filter((resy) => {
             return resy.date.split('-')[1] == mm;
@@ -83,9 +81,61 @@ const Admin = () => {
 
         setMonthcounter(monthCounter + onlyThisMonth.length);
 
-        // console.log(onlyThisMonth);
+    }
 
+    const handleWeekCounter = () => {
+        var todaysDate = new Date();
+        var dd = todaysDate.getDate();
+        var mm = todaysDate.getMonth();
+        var yyyy = todaysDate.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
 
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        
+        const today = new Date(yyyy, mm, dd);
+
+        const sevenDays = 7 * 24 * 60 * 60 * 1000;
+        let currentWeek = today.getTime() + sevenDays;
+
+        const duplicate = [...resFilter];
+      
+        const onlyWeek = duplicate[0].filter((rez) => {
+            let dateArr = rez.date.split('-');
+            let tmpDate = new Date(dateArr[0], (dateArr[1] - 1), dateArr[2]);
+       
+            return tmpDate <= currentWeek && tmpDate >= today
+            
+        });
+        
+        setWeekcounter(weekCounter + onlyWeek.length);
+
+    }
+
+    const handleDayCounter = () => {
+        var todaysDate = new Date();
+        var dd = todaysDate.getDate();
+        var mm = todaysDate.getMonth() + 1;
+        var yyyy = todaysDate.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        todaysDate = yyyy + '-' + mm + '-' + dd;
+        
+        const duplicate = resFilter[0];
+        let onlyToday = duplicate.filter((rez) => {
+            return rez.date === todaysDate;
+        })
+        // console.log(onlyToday)
+        setTodaycounter(todayCounter + onlyToday.length)
+        
     }
 
     useEffect(() => {
@@ -109,6 +159,8 @@ const Admin = () => {
             })
             .then(() => {
                 handleMonthCounter()
+                handleWeekCounter()
+                handleDayCounter()
             })
             .catch(err => console.log(err));
     }, []);
@@ -168,6 +220,8 @@ const Admin = () => {
 
             <ChartBoxes
                 monthCounter={monthCounter}
+                weekCounter={weekCounter}
+                todayCounter={todayCounter}
                 resFilter={resFilter}
             />
 

@@ -4,49 +4,6 @@ import API from '../../util/API';
 
 const ChartBoxes = (props) => {
 
-    const [todaysReservations, setTodaysReservations] = useState([]);
-
-    const updateChart = () => {
-
-        var today = new Date();
-                var dd = today.getDate();
-
-                var mm = today.getMonth() + 1;
-                var yyyy = today.getFullYear();
-                if (dd < 10) {
-                    dd = '0' + dd;
-                }
-
-                if (mm < 10) {
-                    mm = '0' + mm;
-                }
-                today = yyyy + '-' + mm + '-' + dd;
-                
-                var resDuplicate = [...props.resFilter]
-
-                Update(today, resDuplicate);
-                
-                const todayFilter = resDuplicate.filter(resy => resy.date === today);
-                // setTodaysReservations(todayFilter)
-                // console.log(todayFilter)
-        
-    }
-
-    const Update = (today, array) => {
-        var emptyArray = [];
-                
-                for(var i = 0; i < array.length; i++){
-                    console.log(array[i])
-                    if(array[i].date === today){
-                        emptyArray.push(array[i].date);
-                        setTodaysReservations(emptyArray)
-
-                    } else {
-                        return null
-                    }
-                }
-    }
-
     return (
         <div className="row chart-row">
             <div className="col md-4">
@@ -77,10 +34,10 @@ const ChartBoxes = (props) => {
 
                     </div>
                     <div className="widget-numbers">
-                        16
+                        {props.weekCounter}
     </div>
                     <div className="widget-subheading">
-                        Reservations Made in Current Week
+                        Reservations this Current Week
     </div>
                     <div className="widget-description text-white">
                         <span className="pl-1">54.1%</span>
@@ -93,14 +50,14 @@ const ChartBoxes = (props) => {
                 <div className="card mb-3 bg-plum-plate widget-chart text-white card-border">
                     <div className="icon-wrapper rounded-circle">
                         <div className="icon-wrapper-bg bg-dark opacity-9" />
-                        <i onClick={updateChart} className="fa fa-calendar-check-o" aria-hidden="true"></i>
+                        <i className="fa fa-calendar-check-o" aria-hidden="true"></i>
 
                     </div>
                     <div className="widget-numbers">
-                        {todaysReservations.length}
+                        {props.todayCounter}
                     </div>
                     <div className="widget-subheading">
-                        # of Reservations Today
+                        Reservations Today
     </div>
                     <div className="widget-description text-white opacity-8">
                         <i className="fa fa-arrow-right" aria-hidden="true"></i>
