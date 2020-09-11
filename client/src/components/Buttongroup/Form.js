@@ -4,11 +4,20 @@ import { Link } from 'react-router-dom';
 // import Moment from 'react-moment';
 
 export function Form(props) {
+
+    
+        var todaysDate = new Date(); 
+        var year = todaysDate.getFullYear();
+        var month = ("0" + (todaysDate.getMonth() + 1)).slice(-2);  //MM
+        var day = ("0" + todaysDate.getDate()).slice(-2); // DD
+        var minDate = (year +"-"+ month +"-"+ day);
+    
+      
     return (
         <div className="dateAndTime row">
             <form className="calendar">
                 <label className="lane" id="l1">Select a Date: </label>
-                <input type="date" name="date" value={props.value} onChange={props.handleInputChange} />
+                <input type="date" min={minDate} name="date" value={props.value} onChange={props.handleInputChange} />
                 <button className="submitDate" onClick={props.handleClick}>Reserve</button>
 
                 <div style={{ "display": props.submitForm }} className="lap-btns">

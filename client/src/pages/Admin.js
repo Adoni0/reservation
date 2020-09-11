@@ -73,7 +73,7 @@ const Admin = () => {
         var today = new Date();
         var mm = '0' + (today.getMonth() + 1);
 
-        const duplicate = resFilter[0];
+        const duplicate = resFilter[0]; //0 index is a sub array
 
         let onlyThisMonth = duplicate.filter((resy) => {
             return resy.date.split('-')[1] == mm;
@@ -95,7 +95,7 @@ const Admin = () => {
         if (mm < 10) {
             mm = '0' + mm;
         }
-        
+
         const today = new Date(yyyy, mm, dd);
 
         const sevenDays = 7 * 24 * 60 * 60 * 1000;

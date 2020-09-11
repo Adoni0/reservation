@@ -10,8 +10,6 @@ import SignUp from './pages/SignUp';
 import PasswordReset from './pages/PasswordReset';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
-import UserProvider from './providers/UserProvider';
-import Application from './components/Application';
 import Provide from './components/Provide';
 
 
@@ -24,8 +22,9 @@ class App extends Component {
     time: '',
     name: '',
     email: '',
-    phone: ''
+    phone: '',
   }
+
 
   handleClick = (e) => {
     e.preventDefault();

@@ -30,10 +30,7 @@ export class Home extends Component {
                     
 
                 <Icons />
-                {/* {this.props.submitForm === "display: block" ? <ProgramButton amClick={this.props.amClick}
-                pmClick={this.props.pmClick} /> : console.log('form not yet submitted')} */}
-                {/* {this.props.isAMButton ? <AM /> : console.log("am button not clicked yet")}
-                {this.props.isPMButton ? <PM /> : console.log("pm button not yet pushed")} */}
+              
                 <Footer />
             </div>
         )
