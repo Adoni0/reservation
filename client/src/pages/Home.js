@@ -26,6 +26,7 @@ export class Home extends Component {
                             submitForm={this.props.submitForm}
                             amButton={this.props.isAMButton}
                             pmButton={this.props.isPMButton}
+                            nineAmSpots={this.props.nineAmSpots}
                         />
                     
 

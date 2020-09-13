@@ -2,8 +2,6 @@ const db = require('../models/');
 
 module.exports = {
     create: function(req, res){
-        // console.log(req.body.date);
-        // console.log(req.body.timeSlots.time);
 
         db.Reservations.count({
             date: req.body.date,

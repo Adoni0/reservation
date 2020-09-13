@@ -23,12 +23,15 @@ class App extends Component {
     name: '',
     email: '',
     phone: '',
+    nineAmSpots: 0
   }
 
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({ submitForm: "block" })
+    this.setState({ submitForm: "block" });
+
+    this.handleSpotsAvailable();
   }
 
   handleInputChange = (event) => {
@@ -91,6 +94,26 @@ class App extends Component {
 
   }
 
+  handleSpotsAvailable = () => {// run when reserve button is clicked!!
+    API.getAllReservations()
+    .then((data) => {
+      // console.log('got here!!')
+      var reservations = data.data;
+      var result = [];
+      reservations.forEach(rez => {
+        if(rez.date === this.state.date && rez.timeSlot === '9AM'){
+          result.push(rez);
+          var count = 6 - result.length;
+          console.log(count)
+          // result.length < 6 ? this.setState({ nineAmSpots: count }) : null;
+        }else {
+          return null;
+        }
+      })
+    })
+    .catch(err => console.log(err));
+  }
+
 
   render() {
     return (
@@ -109,6 +132,7 @@ class App extends Component {
             tenAM={this.handleTenAM}
             fivePM={this.handleFivePM}
             sixPM={this.handleSixPM}
+            nineAmSpots={this.state.nineAmSpots}
           />} />
           <Route exact path="/reserve" render={props => <Reservations {...props}
             date={this.state.date}
