@@ -28,13 +28,13 @@ export function Form(props) {
                 <div className="am-link" style={{ "display": props.amButton }}>
                     <button type="button" data-toggle="tooltip" data-placement="bottom" title={props.nineAmSpots + " spots left"} onClick={props.nineAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">9AM</Link></button>
 
-                    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Tooltip for spots remaining" onClick={props.tenAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">10AM</Link></button>
+                    <button type="button" data-toggle="tooltip" data-placement="bottom" title={props.tenAmSpots + " spots left"} onClick={props.tenAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">10AM</Link></button>
                     {/* <SpotsRemaining /> */}
                 </div>
 
                 <div className="pm-link" style={{ "display": props.pmButton }}>
-                    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom" onClick={props.fivePM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">5PM</Link></button>
-                    <button type="button" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom" onClick={props.sixPM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">6PM</Link></button>
+                    <button type="button" data-toggle="tooltip" data-placement="bottom" title={props.fivePmSpots + " spots left"} onClick={props.fivePM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">5PM</Link></button>
+                    <button type="button" data-toggle="tooltip" data-placement="bottom" title={props.sixPmSpots + " spots left"} onClick={props.sixPM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">6PM</Link></button>
                 </div>
             </form>
 

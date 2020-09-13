@@ -23,13 +23,19 @@ class App extends Component {
     name: '',
     email: '',
     phone: '',
-    nineAmSpots: 0
+    nineAmSpots: 6,
+    tenAmSpots: 6,
+    fivePmSpots: 6,
+    sixPmSpots: 6
   }
 
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({ submitForm: "block" });
+    this.setState({
+      submitForm: "block", nineAmSpots: 6,
+      tenAmSpots: 6, fivePmSpots: 6, sixPmSpots: 6
+    });
 
     this.handleSpotsAvailable();
   }
@@ -96,22 +102,38 @@ class App extends Component {
 
   handleSpotsAvailable = () => {// run when reserve button is clicked!!
     API.getAllReservations()
-    .then((data) => {
-      // console.log('got here!!')
-      var reservations = data.data;
-      var result = [];
-      reservations.forEach(rez => {
-        if(rez.date === this.state.date && rez.timeSlot === '9AM'){
-          result.push(rez);
-          var count = 6 - result.length;
-          console.log(count)
-          // result.length < 6 ? this.setState({ nineAmSpots: count }) : null;
-        }else {
-          return null;
-        }
+      .then((data) => {
+        // console.log('got here!!')
+        var reservations = data.data;
+        var result = [];
+
+        reservations.forEach(rez => {
+          if (rez.date === this.state.date && rez.timeSlot === '9AM') {
+            result.push(rez);
+            var count = 6 - result.length;
+            // console.log('9Am count: ' + count);
+            this.setState({ nineAmSpots: count })
+          } else if (rez.date === this.state.date && rez.timeSlot === '10AM') {
+            result.push(rez);
+            var count = 6 - result.length;
+            // console.log('10Am count: ' + count);
+            this.setState({ tenAmSpots: count })
+          } else if (rez.date === this.state.date && rez.timeSlot === '5PM') {
+            result.push(rez);
+            var count = 6 - result.length;
+            // console.log('5PM count: ' + count);
+            this.setState({ fivePmSpots: count })
+          } else if (rez.date === this.state.date && rez.timeSlot === '6PM') {
+            result.push(rez);
+            var count = 6 - result.length;
+            // console.log('6PM count: ' + count);
+            this.setState({ sixPmSpots: count })
+          } else {
+            return null;
+          }
+        })
       })
-    })
-    .catch(err => console.log(err));
+      .catch(err => console.log(err));
   }
 
 
@@ -133,6 +155,9 @@ class App extends Component {
             fivePM={this.handleFivePM}
             sixPM={this.handleSixPM}
             nineAmSpots={this.state.nineAmSpots}
+            tenAmSpots={this.state.tenAmSpots}
+            fivePmSpots={this.state.fivePmSpots}
+            sixPmSpots={this.state.sixPmSpots}
           />} />
           <Route exact path="/reserve" render={props => <Reservations {...props}
             date={this.state.date}
@@ -143,11 +168,11 @@ class App extends Component {
             email={this.state.email}
             phone={this.state.phone}
           />} />
-          <Route exact path="/admin" component={Admin}/>
-          <Route exact path="/signIn" component={SignIn}/>
-          <Route exact path="/signUp" component={SignUp}/>
-          <Route exact path="/login" component={Provide}/>
-          <Route exact path="/passwordReset" component={PasswordReset}/>
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/signIn" component={SignIn} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/login" component={Provide} />
+          <Route exact path="/passwordReset" component={PasswordReset} />
           <Route component={NoMatch} />
         </Switch>
       </Router >

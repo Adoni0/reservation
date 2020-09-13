@@ -27,6 +27,9 @@ export class Home extends Component {
                             amButton={this.props.isAMButton}
                             pmButton={this.props.isPMButton}
                             nineAmSpots={this.props.nineAmSpots}
+                            tenAmSpots={this.props.tenAmSpots}
+                            fivePmSpots={this.props.fivePmSpots}
+                            sixPmSpots={this.props.sixPmSpots}
                         />
                     
 
