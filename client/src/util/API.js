@@ -10,8 +10,8 @@ export default {
         return axios.get('api/reserve')
     },
 
-    getReservationByDay: (reservationId) => {
-        return axios.get('api/reserve/' + reservationId)
+    deleteReservation: (reservationId) => {
+        return axios.delete('api/reserve/' + reservationId)
     }
 
 }

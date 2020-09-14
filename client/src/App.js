@@ -32,12 +32,16 @@ class App extends Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    this.setState({
-      submitForm: "block", nineAmSpots: 6,
-      tenAmSpots: 6, fivePmSpots: 6, sixPmSpots: 6
-    });
-
-    this.handleSpotsAvailable();
+    if(this.state.date){
+      this.setState({
+        submitForm: "block", nineAmSpots: 6,
+        tenAmSpots: 6, fivePmSpots: 6, sixPmSpots: 6
+      })
+  
+      this.handleSpotsAvailable();
+    }
+    return null;
+    
   }
 
   handleInputChange = (event) => {
@@ -170,7 +174,7 @@ class App extends Component {
           />} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/signIn" component={SignIn} />
-          <Route exact path="/signUp" component={SignUp} />
+          {/* <Route exact path="/signUp" component={SignUp} /> */}
           <Route exact path="/login" component={Provide} />
           <Route exact path="/passwordReset" component={PasswordReset} />
           <Route component={NoMatch} />

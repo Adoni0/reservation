@@ -184,6 +184,15 @@ const Admin = () => {
 
     }
 
+    const handleDelete = id => {
+        return () => {
+            API.deleteReservation(id)
+            .then(res => console.log(`${res.id} was deleted`))
+            .catch(err => console.log(err));
+        }
+        
+    }
+
 
     return (
         <>
@@ -242,6 +251,7 @@ const Admin = () => {
                             <table className="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
                                     <tr>
+                                         <th className="text-center"></th>
                                         <th className="text-center">Date</th>
                                         <th>Name</th>
                                         <th className="text-center">Email</th>
@@ -253,6 +263,8 @@ const Admin = () => {
                                     {reservations.length ? reservations.map(reservation => (
                                         <Table
                                             key={reservation._id}
+                                            // id={reservation._id}
+                                            handleDelete={handleDelete(reservation._id)}
                                             date={reservation.date}
                                             name={reservation.name}
                                             email={reservation.email}
