@@ -20,8 +20,8 @@ const ChartBoxes = (props) => {
                         Total Reservations this Month
     </div>
                     <div className="widget-description text-dark">
-                        <i className="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span className="pl-1">175.5%</span>
+                        <i className="fa fa-sun-o" aria-hidden="true"></i>
+                        {/* <span className="pl-1">175.5%</span> */}
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ const ChartBoxes = (props) => {
                         Reservations this Current Week
     </div>
                     <div className="widget-description text-white">
-                        <span className="pl-1">54.1%</span>
+                        {/* <span className="pl-1">54.1%</span> */}
                         <i className="fa fa-angle-up" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -60,8 +60,8 @@ const ChartBoxes = (props) => {
                         Reservations Today
     </div>
                     <div className="widget-description text-white opacity-8">
-                        <i className="fa fa-arrow-right" aria-hidden="true"></i>
-                        <span className="pl-1">175.5%</span>
+                        <i className="fa fa-tint" aria-hidden="true"></i>
+                        {/* <span className="pl-1">175.5%</span> */}
                     </div>
                 </div>
             </div>

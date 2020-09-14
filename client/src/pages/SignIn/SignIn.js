@@ -44,8 +44,9 @@ const SignIn = () => {
         </div>
        
         <button type="submit" className="btn btn-success" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
-
-        <p style={{paddingTop: '10px'}}>Dont have an Account? | <Link to="/signUp">Sign Up here!</Link></p>
+    <br/>
+    <br/>
+        {/* <p style={{paddingTop: '10px'}}>Dont have an Account? | <Link to="/signUp">Sign Up here!</Link></p> */}
         
         <Link to="/passwordReset">Forgot Password?</Link>
       </form>

@@ -4,6 +4,7 @@ export default function Table(props) {
     return (
         <>
             <tr>
+                <td className="text-center"><i onClick={props.handleDelete} className="fa fa-times delete-icon" aria-hidden="true"></i></td>
                 <td className="text-center text-muted">{props.date}</td>
                 <td>
                     <div className="widget-content p-0">

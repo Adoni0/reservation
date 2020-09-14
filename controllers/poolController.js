@@ -1,7 +1,7 @@
 const db = require('../models/');
 
 module.exports = {
-    create: function(req, res){
+    create: function (req, res) {
 
         db.Reservations.count({
             date: req.body.date,
@@ -13,7 +13,7 @@ module.exports = {
 
             if (count < 6) {
                 console.log('Got this far');
-                
+
                 db.Reservations.create({
                     date: req.body.date,                        // date: '2020-08-25',
                     timeSlot: req.body.timeSlots.time,          // timeSlot: '9AM',
@@ -28,20 +28,21 @@ module.exports = {
             }
         })
 
-        
+
     },
 
-    findAll: function(req,res){
+    findAll: function (req, res) {
         db.Reservations.find()
-        .then(reservation => {
-            res.json(reservation)
-        })
-        .catch(err => res.json(err));
+            .then(reservation => {
+                res.json(reservation)
+            })
+            .catch(err => res.json(err));
     },
 
-    findById: (req, res) => {
-        db.Reservations.findById(id)
-        .then(resy => res.json(resy))
-        .catch(err => res.json(err));
+    remove: (req, res) => {
+        db.Reservations.findById({ _id: req.params.id })
+            .then(dbModel => dbModel.remove())
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.json(err))
     }
 }
