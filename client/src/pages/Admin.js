@@ -140,7 +140,6 @@ const Admin = () => {
 
     useEffect(() => {
 
-
         API.getAllReservations()
             .then(data => {
                 const resy = [...reservations]
@@ -166,6 +165,7 @@ const Admin = () => {
     }, []);
 
 
+
     const handleInputFilterChange = (event) => {
         const { name, value } = event.target;
 
@@ -187,7 +187,20 @@ const Admin = () => {
     const handleDelete = id => {
         return () => {
             API.deleteReservation(id)
-            .then(res => console.log(`${res.id} was deleted`))
+            .then(res => {
+                API.getAllReservations()
+                .then(data => {
+                    // const resy = [];
+                    var filteredRes = data.data.filter(rez => {
+                        return rez._id !== res.data._id
+                    })
+                    setReservations(filteredRes);
+                    setResfilter(filteredRes);
+                    console.log(filteredRes)
+                })
+                .catch(err => console.log(err));    
+                
+            })
             .catch(err => console.log(err));
         }
         
