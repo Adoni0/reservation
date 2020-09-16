@@ -29,7 +29,7 @@ export function Form(props) {
                     <button type="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content={props.nineAmSpots + " spots left"} onClick={props.nineAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">9AM</Link></button>
 
                     <button type="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content={props.tenAmSpots + " spots left"} onClick={props.tenAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">10AM</Link></button>
-                    {/* <SpotsRemaining /> */}
+                    
                 </div>
 
                 <div className="pm-link" style={{ "display": props.pmButton }}>

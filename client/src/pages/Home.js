@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavbarDisplay from '../components/NavbarDisplay/NavbarDisplay';
 import { Form, Footer } from '../components/Buttongroup/Form';
 import Icons from '../components/Icons/Icons';
+import Background from '../components/Background/Background';
 
 
 export class Home extends Component {
@@ -12,6 +13,8 @@ export class Home extends Component {
 
             <div className="homePageContainer">
                 <NavbarDisplay />
+
+                <Background />
             
                         <Form
                             handleClick={this.props.handleClick}
