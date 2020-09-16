@@ -21,9 +21,10 @@ export default function Contact(props) {
                     <label>Phone Number</label>
                     <input type="tel" name="phone" onChange={props.handleInputChange} value={props.phone} className="form-control" id="exampleInputPassword1" />
                 </div>
-                
+
                 {/* <a href='/' className="btn btn-primary" onClick={props.handleSubmit}>Reserve</a> */}
                 <button onClick={props.handleSubmit} type="submit" className="btn btn-primary"><Link className="changeTextColor" to="/">Reserve</Link></button>
+
             </form>
         </div>
     )

@@ -4,6 +4,7 @@ import poolLane from '../../images/pool-lane.jpg'
 import water from '../../images/water.jpg'
 import swimRace from '../../images/swimRace.jpg'
 import floatie from '../../images/floatie.jpg'
+import AquaticCenter from '../../images/AquaticCenter.jpg'
 
 
 export default function Background() {
@@ -14,6 +15,7 @@ export default function Background() {
             <img src={swimRace} alt="gallery02" className="gallery-image"/>
             <img src={water} alt="gallery03" className="gallery-image"/>
             <img src={floatie} alt="gallery04" className="gallery-image"/>
+            <img src={AquaticCenter} alt="gallery05" className="gallery-image"/>
         </div>
         </div>
     )
