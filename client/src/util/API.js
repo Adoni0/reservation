@@ -12,6 +12,10 @@ export default {
 
     deleteReservation: (reservationId) => {
         return axios.delete('api/reserve/' + reservationId)
+    },
+
+    updateReservation: (resId, resData) => {
+        return axios.put(`api/reserve/${resId}`, resData)
     }
 
 }

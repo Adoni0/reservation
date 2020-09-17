@@ -17,13 +17,13 @@ export default function NavbarDisplay() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
-                                <a className="homeLink" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home | </a>
+                                <a className="homeLink" href="/"><i className="fa fa-home" aria-hidden="true"></i> Home | </a>
                             </li>
 
                         </ul>
                         <form className="form-inline my-2 my-lg-0">
                             {/* <a className="admin" href="/admin">Admin</a> */}
-                            <a className="admin" href="/login"><i class="fa fa-user-circle" aria-hidden="true"></i> Admin</a>
+                            <a className="admin" href="/login"><i className="fa fa-user-circle" aria-hidden="true"></i> Admin</a>
 
                         </form>
                     </div>

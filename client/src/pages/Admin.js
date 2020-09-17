@@ -3,6 +3,7 @@ import API from '../util/API'
 import pvrpd from '../images/pvrpd.jpg';
 import Table from '../components/Table';
 import Modal from '../components/Modal';
+import EditForm from '../components/EditForm/EditForm';
 import ChartBoxes from '../components/ChartBoxes/ChartBoxes';
 import { auth } from '../components/Firebase';
 import { UserContext } from '../providers/UserProvider';
@@ -206,6 +207,19 @@ const Admin = () => {
         
     }
 
+    const handleEdit = (id, reservation) => {
+        return () => {console.log(`id: ${id} reservation: ${reservation.date}`)}
+        // API.updateReservation(id, {
+        //     date: reservation.date,
+        //     timeSlot: reservation.timeSlot,
+        //     name: reservation.name,
+        //     email: reservation.email,
+        //     phone: reservation.phone
+        // })
+        // .then(data => console.log(`reservation updated`))
+        // .catch(err => console.log(err)); 
+    }
+
 
     return (
         <>
@@ -218,7 +232,7 @@ const Admin = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="homeLink" href="/">Home</a>
+                            <a className="homeLink" href="/"><i className="fa fa-home" aria-hidden="true"></i> Home</a>
                         </li>
                         <li className="nav-item">
                             <p>{displayName}</p>
@@ -239,6 +253,8 @@ const Admin = () => {
                 handleFilterByDay={handleFilterByDay}
                 handleInputFilterChange={handleInputFilterChange}
             />
+
+            <EditForm />
 
             <ChartBoxes
                 monthCounter={monthCounter}
@@ -265,6 +281,7 @@ const Admin = () => {
                                 <thead>
                                     <tr>
                                          <th className="text-center"></th>
+                                         <th className="text-center"></th>
                                         <th className="text-center">Date</th>
                                         <th>Name</th>
                                         <th className="text-center">Email</th>
@@ -278,6 +295,7 @@ const Admin = () => {
                                             key={reservation._id}
                                             // id={reservation._id}
                                             handleDelete={handleDelete(reservation._id)}
+                                            handleEdit={handleEdit(reservation._id, reservation)}
                                             date={reservation.date}
                                             name={reservation.name}
                                             email={reservation.email}

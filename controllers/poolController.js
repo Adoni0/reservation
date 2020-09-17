@@ -44,5 +44,11 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.json(err))
+    },
+
+    update: (req, res) => {
+        db.Reservations.findOneAndUpdate({id: req.params.id}, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.json(err));
     }
 }

@@ -64,23 +64,23 @@ class App extends Component {
 
   handleNineAM = e => {
     e.preventDefault();
-    this.setState({ time: "9AM" })
+    this.setState({ time: "9AM", isPMButton: "none", isAMButton: "none", submitForm: "none" })
     // console.log("TIME " + this.state.time);
   }
 
   handleTenAM = e => {
     e.preventDefault();
-    this.setState({ time: "10AM" })
+    this.setState({ time: "10AM", isPMButton: "none", isAMButton: "none", submitForm: "none" })
   }
 
   handleFivePM = e => {
     e.preventDefault();
-    this.setState({ time: "5PM" })
+    this.setState({ time: "5PM", isPMButton: "none", isAMButton: "none", submitForm: "none" })
   }
 
   handleSixPM = e => {
     e.preventDefault();
-    this.setState({ time: "6PM" })
+    this.setState({ time: "6PM", isPMButton: "none", isAMButton: "none", submitForm: "none" })
   }
 
   handleSubmit = (e) => {

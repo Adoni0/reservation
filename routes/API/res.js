@@ -6,6 +6,7 @@ router.route('/')
   .post(poolController.create);
 
   router.route('/:id')
-  .delete(poolController.remove);
+  .delete(poolController.remove)
+  .put(poolController.update)
 
 module.exports = router;

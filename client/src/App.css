@@ -214,3 +214,8 @@ btn-sm,
   cursor: pointer;
   color: red;
 }
+
+.edit-icon:hover {
+  cursor: pointer;
+  color: #4eb2eb;
+}
