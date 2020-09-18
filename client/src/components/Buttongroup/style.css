@@ -13,6 +13,10 @@
   
 }
 
+.lap-btns{
+  margin-left: 5rem;
+}
+
 .calendar{
   margin: auto;
 }
@@ -37,11 +41,11 @@ a:hover {
 }
 
 .am-link {
-  margin-left: 50px;
+  margin-left: 8.1rem;
 }
 
 .pm-link {
-  margin-left: 230px;
+  margin-left: 19.4rem;
 }
 
 button:focus {

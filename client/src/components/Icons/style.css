@@ -6,6 +6,28 @@
     z-index: 100;
   }
 
+  @media only screen and (max-width: 580px){
+    .social-icons {
+      animation: MoveUp 1s linear;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes MoveUp{
+    0% {
+      top: 30%;
+    }
+    25%{
+      top: 25%;
+    }
+    50% {
+      top: 20%;
+    }
+    100% {
+      top: 18%;
+    }
+  }
+
   .social-icons ul {
     padding: initial;
     
@@ -36,14 +58,6 @@
 
   .youtube{
     background: #ff0000;
-    color: #fff;
-    /* border-radius: 3px; */
-    padding-top: 3px;
-    padding-bottom: 3px;
-  }
-
-  .linkedin{
-    background: #007bb5;
     color: #fff;
     /* border-radius: 3px; */
     padding-top: 3px;
