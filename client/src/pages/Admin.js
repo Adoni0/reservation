@@ -19,6 +19,15 @@ const Admin = () => {
     const [monthCounter, setMonthcounter] = useState(0);
     const [weekCounter, setWeekcounter] = useState(0);
     const [todayCounter, setTodaycounter] = useState(0);
+    // const [editRes, setEditRes] = useState({});
+    //EditForm values ====================================
+    const [name, setName] = useState('');
+    const [resEmail, setResEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [time, setTime] = useState('');
+    const [date, setDate] = useState('');
+    const [id, setId] = useState('');
+    //====================================================
 
     const user = useContext(UserContext);
     const { displayName, email } = user;
@@ -173,6 +182,21 @@ const Admin = () => {
         if (name === 'dateFilter') {
             setDatefilter(value)
         }
+        if(name === 'name'){
+            setName(value)
+        }
+        if(name === 'resEmail'){
+            setResEmail(value)
+        }
+        if(name === 'phone'){
+            setPhone(value)
+        }
+        if(name === 'time'){
+            setTime(value)
+        }
+        if(name === 'date'){
+            setDate(value)
+        }
     }
 
     const handleFilterByDay = (e) => {
@@ -208,7 +232,16 @@ const Admin = () => {
     }
 
     const handleEdit = (id, reservation) => {
-        return () => {console.log(`id: ${id} reservation: ${reservation.date}`)}
+        return () => {
+            // setEditRes(reservation);
+            setDate(reservation.date);
+            setName(reservation.name);
+            setResEmail(reservation.email);
+            setPhone(reservation.phone);
+            setTime(reservation.timeSlot);
+            setId(id);
+            // console.log(reservation.name);
+        }
         // API.updateReservation(id, {
         //     date: reservation.date,
         //     timeSlot: reservation.timeSlot,
@@ -254,7 +287,15 @@ const Admin = () => {
                 handleInputFilterChange={handleInputFilterChange}
             />
 
-            <EditForm />
+            <EditForm 
+            resName={name}
+            resEmail={resEmail}
+            resPhone={phone}
+            resDate={date}
+            resTime={time}
+            resId={id}
+            handleChange={handleInputFilterChange}
+            />
 
             <ChartBoxes
                 monthCounter={monthCounter}
