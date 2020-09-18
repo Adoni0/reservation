@@ -221,7 +221,7 @@ const Admin = () => {
                     })
                     setReservations(filteredRes);
                     setResfilter(filteredRes);
-                    console.log(filteredRes)
+                    alert('Reservation Deleted!')
                 })
                 .catch(err => console.log(err));    
                 
@@ -242,15 +242,13 @@ const Admin = () => {
             setId(id);
             // console.log(reservation.name);
         }
-        // API.updateReservation(id, {
-        //     date: reservation.date,
-        //     timeSlot: reservation.timeSlot,
-        //     name: reservation.name,
-        //     email: reservation.email,
-        //     phone: reservation.phone
-        // })
-        // .then(data => console.log(`reservation updated`))
-        // .catch(err => console.log(err)); 
+       
+    }
+
+    const refreshReservationsAfterEdit = (updatedReservations) => {
+        console.log(updatedReservations);
+        setReservations(updatedReservations);
+        setResfilter(updatedReservations);
     }
 
 
@@ -295,6 +293,7 @@ const Admin = () => {
             resTime={time}
             resId={id}
             handleChange={handleInputFilterChange}
+            refreshReservationsAfterEdit={refreshReservationsAfterEdit}
             />
 
             <ChartBoxes

@@ -22,8 +22,12 @@ export default function Contact(props) {
                     <input type="tel" name="phone" onChange={props.handleInputChange} value={props.phone} className="form-control" id="exampleInputPassword1" />
                 </div>
 
-                {/* <a href='/' className="btn btn-primary" onClick={props.handleSubmit}>Reserve</a> */}
-                <button onClick={props.handleSubmit} type="submit" className="btn btn-primary"><Link className="changeTextColor" to="/">Reserve</Link></button>
+                {/* <button onClick={props.handleSubmit} type="submit" className="btn btn-primary"><Link className="changeTextColor" to="/">Reserve</Link></button> */}
+                <button className="bubbly" onClick={props.handleSubmit} type="submit">
+                    <div className="left"></div>
+                    <Link className="changeTextColor" to="/">Reserve</Link>
+                    <div className="right"></div>
+                </button>
 
             </form>
         </div>

@@ -47,7 +47,7 @@ module.exports = {
     },
 
     update: (req, res) => {
-        db.Reservations.findOneAndUpdate({id: req.params.id}, req.body)
+        db.Reservations.findOneAndUpdate({ id: req.body.id }, req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.json(err));
     }
