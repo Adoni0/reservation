@@ -85,6 +85,10 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    
+    if(this.state.date && this.state.time && this.state.name && this.state.phone && this.state.email){
+    alert('Reservation Saved!')
+    
     API.storeReservation({
       date: this.state.date,
       timeSlots: {
@@ -97,10 +101,13 @@ class App extends Component {
       }
     })
       .then(data => {
-        // console.log("Success!")
-        alert('Reservation Saved!')
+        console.log("Success!")
+       
       })
       .catch(err => console.log(err));
+    } else {
+      alert('All fields must be entered.')
+    }
 
   }
 

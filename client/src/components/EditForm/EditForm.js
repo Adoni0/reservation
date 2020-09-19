@@ -72,7 +72,7 @@ export default function EditForm(props) {
                     </div>
                     <div className="modal-footer mx-auto">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button onClick={handleUpdate} type="button" className="btn btn-success">Save Changes</button>
+                        <button onClick={handleUpdate} type="button" data-dismiss="modal" className="btn btn-success">Save Changes</button>
                     </div>
                 </div>
             </div>

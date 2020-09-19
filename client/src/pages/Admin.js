@@ -249,6 +249,7 @@ const Admin = () => {
         console.log(updatedReservations);
         setReservations(updatedReservations);
         setResfilter(updatedReservations);
+        alert('Reservation Updated!');
     }
 
 

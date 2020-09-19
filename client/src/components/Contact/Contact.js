@@ -26,6 +26,7 @@ export default function Contact(props) {
                 <button className="bubbly" onClick={props.handleSubmit} type="submit">
                     <div className="left"></div>
                     <Link className="changeTextColor" to="/">Reserve</Link>
+                    {/* Reserve */}
                     <div className="right"></div>
                 </button>
 
