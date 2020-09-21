@@ -16,9 +16,9 @@ export function Form(props) {
     return (
         <div className="dateAndTime row">
             <form className="calendar">
-                <label style={{fontSize: '1em'}} className="lane" id="l1">Select a Date: </label>
-                <input style={{fontSize: '1.5em'}} type="date" min={minDate} name="date" value={props.value} onChange={props.handleInputChange} />
-                <button style={{fontSize: '1.5em'}} className="submitDate" onClick={props.handleClick}>Reserve</button>
+                <label style={{ fontSize: '1em' }} className="lane" id="l1">Select a Date: </label>
+                <input style={{ fontSize: '1.5em' }} type="date" min={minDate} name="date" value={props.value} onChange={props.handleInputChange} />
+                <button style={{ fontSize: '1.5em' }} className="submitDate" onClick={props.handleClick}>Reserve</button>
 
                 <div style={{ "display": props.submitForm }} className="lap-btns">
                     <button onClick={props.amClick} type="button" className="btn btn-light ampm">AM Lap Swim</button>
@@ -27,9 +27,8 @@ export function Form(props) {
 
                 <div className="am-link" style={{ "display": props.amButton }}>
                     <button type="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content={props.nineAmSpots + " spots left"} onClick={props.nineAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">9AM</Link></button>
-
                     <button type="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content={props.tenAmSpots + " spots left"} onClick={props.tenAM} className="btn submitDate btn-outline-light"><Link className="changeColor" to="/reserve">10AM</Link></button>
-                    
+
                 </div>
 
                 <div className="pm-link" style={{ "display": props.pmButton }}>

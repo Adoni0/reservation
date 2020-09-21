@@ -25,36 +25,42 @@ export default function EditForm(props) {
             .catch(err => console.log(err));
     }
 
+    var todaysDate = new Date();
+    var year = todaysDate.getFullYear();
+    var month = ("0" + (todaysDate.getMonth() + 1)).slice(-2);  //MM
+    var day = ("0" + todaysDate.getDate()).slice(-2); // DD
+    var minDate = (year + "-" + month + "-" + day);
+
     return (
         // <!-- Scrollable modal -->
         <div className="modal fade" id="exampleModalScrollable" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-scrollable edit">
                 <div className="modal-content">
-                    <div className="modal-header">
+                    <div style={{backgroundColor: '#3bb78f', backgroundImage: 'linear-gradient(315deg, #3bb78f 0%, #0bab64 74'}} className="modal-header">
                         <h5 className="modal-title" id="staticBackdropLabel">Edit Reservation Info</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">
-                        <form className="form-group">
-                        <div className="nameInput m-3">
-                            <i className="fa fa-user fa-2x" aria-hidden="true"></i>
-                            <input className="form-control" onChange={props.handleChange} name="name" value={props.resName} />
+                        <form>
+                        <div style={{marginLeft: '125px', paddingBottom: '10px'}} className="nameInput">
+                            <i style={{paddingRight: '10px'}} className="fa fa-user fa-2x" aria-hidden="true"></i>
+                            <input style={{width: '200px'}} onChange={props.handleChange} name="name" value={props.resName} />
                         </div>
 
-                        <div className="emailInput m-3">
-                            <i className="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                            <input className="form-control" type="email" onChange={props.handleChange} name="resEmail" value={props.resEmail} />
+                        <div style={{marginLeft: '125px', paddingBottom: '10px'}} className="emailInput">
+                            <i style={{paddingRight: '10px'}} className="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                            <input style={{width: '200px'}} type="email" onChange={props.handleChange} name="resEmail" value={props.resEmail} />
                         </div>
 
-                        <div className="phoneInput m-3">
-                            <i className="fa fa-phone-square fa-2x" aria-hidden="true"></i>
-                            <input className="form-control" onChange={props.handleChange} name="phone" value={props.resPhone} />
+                        <div style={{marginLeft: '125px', paddingBottom: '10px'}} className="phoneInput">
+                            <i style={{paddingRight: '10px'}} className="fa fa-phone-square fa-2x" aria-hidden="true"></i>
+                            <input onChange={props.handleChange} name="phone" value={props.resPhone} />
                         </div>
 
-                        <div className="timeInput m-3">
-                            <i className="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+                        <div style={{marginLeft: '125px', paddingBottom: '10px'}} className="timeInput">
+                            <i style={{paddingRight: '10px'}} className="fa fa-clock-o fa-2x" aria-hidden="true"></i>
                             <select name="time" onChange={props.handleChange} value={props.resTime} id="time-select">
                                 <option value="9AM">9AM</option>
                                 <option value="10AM">10AM</option>
@@ -63,9 +69,9 @@ export default function EditForm(props) {
                             </select>
                         </div>
 
-                        <div className="dateInput m-3">
-                            <i className="fa fa-calendar fa-2x" aria-hidden="true"></i>
-                            <input className="form-control" onChange={props.handleChange} type="date" name="date" value={props.resDate} />
+                        <div style={{marginLeft: '125px', paddingBottom: '10px'}} className="dateInput">
+                            <i style={{paddingRight: '10px'}} className="fa fa-calendar fa-2x" aria-hidden="true"></i>
+                            <input min={minDate} onChange={props.handleChange} type="date" name="date" value={props.resDate} />
                         </div>
                         </form>
 

@@ -31,6 +31,7 @@ export default function Contact(props) {
                 </button>
 
             </form>
+        
         </div>
     )
 

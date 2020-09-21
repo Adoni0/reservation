@@ -29,7 +29,6 @@ class App extends Component {
     sixPmSpots: 6
   }
 
-
   handleClick = (e) => {
     e.preventDefault();
     if(this.state.date){
