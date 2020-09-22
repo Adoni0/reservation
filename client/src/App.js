@@ -29,6 +29,7 @@ class App extends Component {
     sixPmSpots: 6
   }
 
+
   handleClick = (e) => {
     e.preventDefault();
     if(this.state.date){
@@ -101,7 +102,6 @@ class App extends Component {
     })
       .then(data => {
         console.log("Success!")
-       
       })
       .catch(err => console.log(err));
     } else {
@@ -146,6 +146,10 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  removeButtonsOnDateChange = () => {
+    this.setState({ submitForm: 'none', isAMButton: 'none', isPMButton: 'none' })
+  }
+
 
   render() {
     return (
@@ -154,7 +158,7 @@ class App extends Component {
           <Route exact path="/" render={props => <Home {...props}
             handleClick={this.handleClick}
             handleInputChange={this.handleInputChange}
-            value={this.state.date}
+            dateValue={this.state.date}
             amClick={this.amClick}
             pmClick={this.pmClick}
             submitForm={this.state.submitForm}
@@ -168,6 +172,7 @@ class App extends Component {
             tenAmSpots={this.state.tenAmSpots}
             fivePmSpots={this.state.fivePmSpots}
             sixPmSpots={this.state.sixPmSpots}
+            removeButtonsOnDateChange={this.removeButtonsOnDateChange}
           />} />
           <Route exact path="/reserve" render={props => <Reservations {...props}
             date={this.state.date}

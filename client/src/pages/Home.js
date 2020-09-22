@@ -7,6 +7,12 @@ import Background from '../components/Background/Background';
 
 export class Home extends Component {
 
+    componentDidUpdate = (prevProps) => {
+        if(this.props.dateValue !== prevProps.dateValue){
+            this.props.removeButtonsOnDateChange()
+            // console.log(prevProps.dateValue)
+        }
+    }
 
     render() {
         return (
@@ -19,7 +25,7 @@ export class Home extends Component {
                         <Form
                             handleClick={this.props.handleClick}
                             handleInputChange={this.props.handleInputChange}
-                            value={this.props.value}
+                            dateValue={this.props.dateValue}
                             nineAM={this.props.nineAM}
                             tenAM={this.props.tenAM}
                             fivePM={this.props.fivePM}
@@ -34,7 +40,6 @@ export class Home extends Component {
                             fivePmSpots={this.props.fivePmSpots}
                             sixPmSpots={this.props.sixPmSpots}
                         />
-                    
 
                 <Icons />
               

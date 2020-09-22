@@ -37,7 +37,7 @@ export default function EditForm(props) {
             <div className="modal-dialog modal-dialog-scrollable edit">
                 <div className="modal-content">
                     <div style={{backgroundColor: '#3bb78f', backgroundImage: 'linear-gradient(315deg, #3bb78f 0%, #0bab64 74'}} className="modal-header">
-                        <h5 className="modal-title" id="staticBackdropLabel">Edit Reservation Info</h5>
+                        <h5 style={{marginLeft: '140px'}}>Edit Reservation Info</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
