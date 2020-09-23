@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './SignIn.css';
 import { auth } from '../../components/Firebase';
+import bg1 from '../../images/bg1.jpg';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -26,7 +27,7 @@ const SignIn = () => {
       .sendPasswordResetEmail(email)
       .then(() => {
         setEmailHasBeenSent(true);
-        setTimeout(() => { setEmailHasBeenSent(false) }, 3000);
+        setTimeout(() => { setEmailHasBeenSent(false) }, 4000);
       })
       .catch(() => {
         setError("Error resetting password");
@@ -56,10 +57,10 @@ const SignIn = () => {
 
   return (
     <>
-    <div className="signInContainer">
+    <div style={{backgroundImage: `url(${bg1})`}} className="signInContainer">
 
       <form className="siForm">
-        <h1 style={{ paddingBottom: '10px' }}>Sign In</h1>
+        <h1 style={{ paddingBottom: '10px', marginLeft: '30px', color: 'black' }}>Sign In</h1>
         {error !== null && <div>{error}</div>}
         <div className="form-group">
           <input type="email" id="userEmail" name="userEmail" placeholder="Email" value={email} onChange={(event) => onChangeHandler(event)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
@@ -70,13 +71,13 @@ const SignIn = () => {
           <input type="password" id="userPassword" name="userPassword" placeholder="Password" className="form-control" value={password} onChange={(event) => onChangeHandler(event)} id="exampleInputPassword1" />
         </div>
 
-        <button type="submit" className="btn btn-success" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
+        <button type="submit" style={{marginLeft: '55px'}} className="btn btn-success" onClick={(event) => { signInWithEmailAndPasswordHandler(event, email, password) }}>Sign In</button>
         <br />
         <br />
         {/* <p style={{paddingTop: '10px'}}>Dont have an Account? | <Link to="/signUp">Sign Up here!</Link></p> */}
 
         {/* <Link to="/passwordReset">Forgot Password?</Link> */}
-        <p data-toggle="modal" data-target="#staticBackdrop" style={{ color: 'lightblue', textDecoration: 'underline', cursor: 'pointer' }}>Forgot Password?</p>
+        <p data-toggle="modal" data-target="#staticBackdrop" style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer', marginLeft: '30px' }}>Forgot Password?</p>
 
       </form>
       </div>
@@ -95,8 +96,8 @@ const SignIn = () => {
 
                 <form action="">
                   {emailHasBeenSent && (
-                    <div>
-                      An email has been sent to you!
+                    <div style={{marginLeft: '60px'}}>
+                      <p style={{color: 'green'}}>An email has been sent to you!</p>
                     </div>
                   )}
                   {resetError !== null && (

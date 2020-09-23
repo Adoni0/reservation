@@ -317,8 +317,9 @@ const Admin = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="table-responsive">
+                        <div style={{height: '300px'}} className="table-responsive">
                             <table className="align-middle mb-0 table table-borderless table-striped table-hover">
+                                
                                 <thead>
                                     <tr>
                                          <th className="text-center"></th>
@@ -330,7 +331,7 @@ const Admin = () => {
                                         <th className="text-center">Time</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style={{overflow: 'scroll'}}>
                                     {reservations.length ? reservations.map(reservation => (
                                         <Table
                                             key={reservation._id}

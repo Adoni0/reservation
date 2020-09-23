@@ -37,7 +37,7 @@ const ChartBoxes = (props) => {
                         {props.weekCounter}
     </div>
                     <div className="widget-subheading">
-                        Reservations this Current Week
+                        Reservations this Upcoming Week
     </div>
                     <div className="widget-description text-white">
                         {/* <span className="pl-1">54.1%</span> */}

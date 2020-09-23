@@ -15,7 +15,7 @@ export default function Contact(props) {
                 <div className="form-group">
                     <label>Email address</label>
                     <input type="email" onChange={props.handleInputChange} name="email" value={props.email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                    
                 </div>
                 <div className="form-group">
                     <label>Phone Number</label>
@@ -23,7 +23,7 @@ export default function Contact(props) {
                 </div>
 
                 {/* <button onClick={props.handleSubmit} type="submit" className="btn btn-primary"><Link className="changeTextColor" to="/">Reserve</Link></button> */}
-                <button className="bubbly" onClick={props.handleSubmit} type="submit">
+                <button style={{marginLeft: '15px'}} className="bubbly" onClick={props.handleSubmit} type="submit">
                     <div className="left"></div>
                     <Link className="changeTextColor" to="/">Reserve</Link>
                     {/* Reserve */}
