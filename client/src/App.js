@@ -6,8 +6,8 @@ import Reservations from "./pages/Reservations";
 import Admin from './pages/Admin';
 import NoMatch from './pages/NoMatch';
 import SignIn from './pages/SignIn/SignIn';
-import SignUp from './pages/SignUp';
-import PasswordReset from './pages/PasswordReset';
+// import SignUp from './pages/SignUp';
+// import PasswordReset from './pages/PasswordReset';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from './util/API';
 import Provide from './components/Provide';
@@ -187,7 +187,7 @@ class App extends Component {
           <Route exact path="/signIn" component={SignIn} />
           {/* <Route exact path="/signUp" component={SignUp} /> */}
           <Route exact path="/login" component={Provide} />
-          <Route exact path="/passwordReset" component={PasswordReset} />
+          {/* <Route exact path="/passwordReset" component={PasswordReset} /> */}
           <Route component={NoMatch} />
         </Switch>
       </Router >
