@@ -272,7 +272,7 @@ const Admin = () => {
                     </ul>
 
                     <form className="form-inline my-2 my-lg-0">
-                        <button className="submitDate" onClick={() => { auth.signOut() }}><Link to="/">Sign out</Link></button>
+                        <button className="btn btn-primary" onClick={() => { auth.signOut() }}><Link style={{color: 'white'}} to="/">Sign out</Link></button>
 
                     </form>
 

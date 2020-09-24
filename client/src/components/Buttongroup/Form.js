@@ -19,7 +19,7 @@ export function Form(props) {
             <form className="calendar">
                 <label style={{ fontSize: '1em' }} className="lane" id="l1">Select a Date: </label>
                 <input style={{ fontSize: '1.5em' }} type="date" min={minDate} name="date" value={props.dateValue} onChange={props.handleInputChange} />
-                <button style={{ fontSize: '1.5em' }} className="submitDate" onClick={props.handleClick}>Reserve</button>
+                <button style={{ fontSize: '1.2em', marginTop: '-10px' }} className="btn btn-warning" onClick={props.handleClick}>Reserve</button>
 
                 <div style={{ "display": props.submitForm }} className="lap-btns">
                     <button onClick={props.amClick} type="button" className="btn btn-light ampm">AM Lap Swim</button>
