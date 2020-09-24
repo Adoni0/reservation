@@ -4,7 +4,9 @@ import Contact from '../components/Contact/Contact';
 import NavBarDisplay from '../components/NavbarDisplay/NavbarDisplay'
 
 export default class Reservations extends Component {
-
+    componentWillUnmount() {
+        window.location.reload();
+    }
 
     render() {
         return (

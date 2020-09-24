@@ -9,30 +9,6 @@
   color: white;
 }
 
-/* .homePageContainer {
-  background-image: url("https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 700px;
-}
-
-@media (max-width: 1020px) {
-  body {
-    background-size: 120%;
-  }
-}
-
-@media (max-width: 850px) {
-  body {
-    background-size: 160%;
-  }
-}
-@media (max-width: 640px) {
-  body {
-    background-size: 210%;
-  }
-} */
-
 /* Admin Page ======================================================================== */
 
 .admin-row{

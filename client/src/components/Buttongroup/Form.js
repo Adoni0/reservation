@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import Popover from '../PopoverOverlay/Popover';
 
 
 export function Form(props) {
-
-    // const [showPopover, setShowPopover] = useState('none');
-
-    // const displayRemainingSpots = () => {
-    //     setShowPopover(showPopover === 'none' ? 'block' : 'none')
-    // }
 
     var todaysDate = new Date();
     var year = todaysDate.getFullYear();
@@ -46,10 +39,6 @@ export function Form(props) {
                 </div>
                
             </form>
-            {/* <Popover 
-            showPop={showPopover}
-            /> */}
-
 
         </div>
        

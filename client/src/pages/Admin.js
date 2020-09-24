@@ -153,7 +153,6 @@ const Admin = () => {
         API.getAllReservations()
             .then(data => {
                 const resy = [...reservations]
-                // console.log(resy);
 
                 for (const reserved of data.data) {
 

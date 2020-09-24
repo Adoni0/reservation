@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './SignIn.css';
 import { auth } from '../../components/Firebase';
 import bg1 from '../../images/bg1.jpg';
+import water from '../../images/water.jpg';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -57,10 +58,10 @@ const SignIn = () => {
 
   return (
     <>
-    <div style={{backgroundImage: `url(${bg1})`}} className="signInContainer">
+    <div style={{backgroundImage: `url(${water})`, backgroundSize: 'cover', height: '730px'}} className="signInContainer">
 
       <form className="siForm">
-        <h1 style={{ paddingBottom: '10px', marginLeft: '30px', color: 'black' }}>Sign In</h1>
+        <h1 className="signInHeader" style={{ paddingBottom: '10px', marginLeft: '30px', color: 'black' }}>Sign In</h1>
         {error !== null && <div>{error}</div>}
         <div className="form-group">
           <input type="email" id="userEmail" name="userEmail" placeholder="Email" value={email} onChange={(event) => onChangeHandler(event)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />

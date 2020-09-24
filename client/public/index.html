@@ -52,6 +52,10 @@
           trigger: "hover",
         });
 
+        $('.am-link button').click(function(){
+          $(this).popover('hide');
+        })
+
         const createGallery = () => {
           const gallery = document.getElementById("gallery");
           const fadeComplete = (e) => {
