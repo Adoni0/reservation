@@ -6,7 +6,7 @@ export default function EditForm(props) {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-
+        console.log(props.resId)
         API.updateReservation(props.resId, {
             date: props.resDate,
             timeSlot: props.resTime,
@@ -15,12 +15,11 @@ export default function EditForm(props) {
             phone: props.resPhone
         })
             .then(data => {
-                console.log(data.data)
-                console.log(props.resId)
+                console.log(data.config.data)
                 
                     API.getAllReservations()
                         .then(rez => {
-
+                            console.log(rez.data)
                             props.refreshReservationsAfterEdit(rez.data)
                         })
                         .catch(err => console.log(err));
