@@ -14,9 +14,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
+const connection = "mongodb+srv://Asoudani:Kobe24MambA$@cluster0/reservationsdb?retryWrites=true&w=majority";
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost:27017/reservationsdb", { useUnifiedTopology: true,  useNewUrlParser: true }
+  "mongodb://localhost:27017/reservationsdb", { useUnifiedTopology: true,  useNewUrlParser: true, useFindAndModify: false }
 );
 
 // Define API routes here

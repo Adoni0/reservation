@@ -245,7 +245,7 @@ const Admin = () => {
     }
 
     const refreshReservationsAfterEdit = (updatedReservations) => {
-        console.log(updatedReservations);
+        // console.log(updatedReservations);
         setReservations(updatedReservations);
         setResfilter(updatedReservations);
         alert('Reservation Updated!');

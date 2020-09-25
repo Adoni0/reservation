@@ -1,4 +1,5 @@
 const db = require('../models/');
+// var objectID = require('mongodb').ObjectID;
 
 module.exports = {
     create: function (req, res) {
@@ -47,6 +48,7 @@ module.exports = {
     },
 
     update: (req, res) => {
+        console.log(req.params.id)
         db.Reservations.findOneAndUpdate({ id: req.body.id }, req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.json(err));

@@ -1,68 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pool Lane Reservation App
 
-## Available Scripts
+The home page asks a user to select a date of reservation. Once selected, two choices are presented asking whether the user would prefer the A.M swim programs or P.M programs. Two buttons are rendered each representing a certain time of day to reserve. For each time on a particular day there are 6 spots reservable. Hovering over the button times displays a popover that shows the remaining spots available for that specific time.
 
-In the project directory, you can run:
+<!-- ![](Gifs/home.gif) -->
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+After the user selects the date and time of their reservation, they are routed to a page to enter their name, email, and phone that is stored in the mongoDB database with the users time and date.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- ![](Gifs/reserve.gif) -->
 
-### `npm test`
+This app utilizes Firebase Auth for authenticating administrators. Admins can sign in to view all data in the database or request an email link to change their password?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- ![](Gifs/signIn.gif) -->
 
-### `npm run build`
+The Admin page allows administrators to delete and edit reservations. It also displays the number of reservations in the current month, week, and day in the chart boxes at the top.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- ![](Gifs/admin1.gif) -->
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To make navigating through all reservations easier, the Admin page includes the options to filter by the upcoming week, filter by specific day, or view all reservations.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- ![](Gifs/filter.gif) -->
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

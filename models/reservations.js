@@ -27,41 +27,6 @@ var ReservationSchema = new Schema({
         required: true
     }
 
-    // timeSlots: [
-    //     {
-    //         time: {
-    //             type: Number,
-    //             required: true
-    //         },
-    //         reserved: {
-    //             type: Boolean,
-    //             required: true
-    //         },
-    //         // lanes: [
-    //         //     {
-    //         //         type: Number,
-    //         //         max: 6,
-    //         //         required: true,
-    //         //     }
-
-    //         // ],
-    //         bookedBy: {
-    //             name: {
-    //                 type: String,
-    //                 required: true
-    //             },
-    //             phone: {
-    //                 type: Number,
-    //                 required: true,
-    //             },
-    //             email: {
-    //                 type: String,
-    //                 required: true
-    //             }
-    //         }
-    //     },
-    // ]
-
 
 })
 

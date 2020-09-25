@@ -54,7 +54,9 @@ export function Footer() {
 
 1605 E. BURNLEY STREET, CAMARILLO CA 93010 <br />
 
-TELEPHONE (805) 482-1996</p>
+TELEPHONE (805) 482-1996  <br />
+
+POWERED BY SOUDONIX ENTERPRISES</p>
         </div>
     )
 
