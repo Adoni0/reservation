@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import API from '../../util/API'
 
 export default function EditForm(props) {
