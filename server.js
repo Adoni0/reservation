@@ -14,17 +14,18 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-const connection = "mongodb+srv://asoudani:Kobe24MambA$@cluster0/reservationsdb?retryWrites=true&w=majority";
+// mongodb+srv://asoudani:Kobe24MambA$@cluster0.ljdot.mongodb.net/reservationsdb?retryWrites=true&w=majority
+// const connection = "mongodb+srv://asoudani:Kobe24MambA$@cluster0/reservationsdb?retryWrites=true&w=majority";
+mongoose.connect(
+  process.env.MONGODB_URI ||
+  "mongodb://localhost:27017/reservationsdb", { useUnifiedTopology: true,  useNewUrlParser: true, useFindAndModify: false }
+);
 // mongoose.connect(
 //   process.env.MONGODB_URI ||
-//   "mongodb://localhost:27017/reservationsdb", { useUnifiedTopology: true,  useNewUrlParser: true, useFindAndModify: false }
-// );
-mongoose.connect(
-  // process.env.MONGODB_URI ||
-  connection, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }
-)
-.then(() => console.log("Database Connected Successfully"))
-  .catch(err => console.log(err));
+//   connection, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }
+// )
+// .then(() => console.log("Database Connected Successfully"))
+//   .catch(err => console.log(err));
 
 // Define API routes here
 app.use(routes);
