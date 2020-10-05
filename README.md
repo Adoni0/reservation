@@ -1,6 +1,6 @@
-Pool Lane Reservation App
+# Pool Lane Reservation App
 
---Use email: asoudani@icloud.com and password: password, for Admin portion
+--Use Email: asoudani@icloud.com and Password: password, for Admin portion
 
 The home page asks a user to select a date of reservation. Once selected, two choices are presented asking whether the user would prefer the A.M swim programs or P.M programs. Two buttons are rendered each representing a certain time of day to reserve. For each time on a particular day there are 6 spots reservable. Hovering over the button times displays a popover that shows the remaining spots available for that specific time.
 
