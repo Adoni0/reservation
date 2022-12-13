@@ -7,7 +7,7 @@
     "admin": "^1.4.1",
     "axios": "^0.19.2",
     "connected-react-router": "^6.8.0",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "final-form-arrays": "^3.0.2",
     "firebase": "^7.19.1",
     "if-env": "^1.0.4",
